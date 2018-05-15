@@ -1,0 +1,244 @@
+
+renwu2.png
+size: 1024,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Eyes
+  rotate: false
+  xy: 196, 5
+  size: 66, 31
+  orig: 66, 31
+  offset: 0, 0
+  index: -1
+Eyes_1
+  rotate: false
+  xy: 510, 159
+  size: 55, 27
+  orig: 55, 27
+  offset: 0, 0
+  index: -1
+Eyes_2
+  rotate: false
+  xy: 596, 158
+  size: 62, 43
+  orig: 62, 43
+  offset: 0, 0
+  index: -1
+Eyes_3
+  rotate: false
+  xy: 709, 158
+  size: 60, 27
+  orig: 60, 27
+  offset: 0, 0
+  index: -1
+Eyes_4
+  rotate: false
+  xy: 918, 203
+  size: 63, 50
+  orig: 63, 50
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 264, 139
+  size: 110, 114
+  orig: 110, 114
+  offset: 0, 0
+  index: -1
+Head_1
+  rotate: true
+  xy: 112, 39
+  size: 84, 146
+  orig: 84, 146
+  offset: 0, 0
+  index: -1
+Head_2
+  rotate: true
+  xy: 377, 177
+  size: 76, 117
+  orig: 76, 117
+  offset: 0, 0
+  index: -1
+Head_3
+  rotate: true
+  xy: 596, 204
+  size: 49, 110
+  orig: 49, 110
+  offset: 0, 0
+  index: -1
+Head_4
+  rotate: true
+  xy: 377, 141
+  size: 33, 79
+  orig: 33, 79
+  offset: 0, 0
+  index: -1
+Head_5
+  rotate: false
+  xy: 459, 128
+  size: 48, 46
+  orig: 48, 46
+  offset: 0, 0
+  index: -1
+LArm
+  rotate: false
+  xy: 407, 108
+  size: 24, 30
+  orig: 24, 30
+  offset: 0, 0
+  index: -1
+LForearm
+  rotate: false
+  xy: 261, 58
+  size: 41, 41
+  orig: 41, 41
+  offset: 0, 0
+  index: -1
+LLeg
+  rotate: false
+  xy: 497, 189
+  size: 96, 64
+  orig: 96, 64
+  offset: 0, 0
+  index: -1
+LShoulder
+  rotate: false
+  xy: 510, 128
+  size: 47, 28
+  orig: 47, 28
+  offset: 0, 0
+  index: -1
+LXiong
+  rotate: false
+  xy: 337, 68
+  size: 26, 30
+  orig: 26, 30
+  offset: 0, 0
+  index: -1
+MainWeapon
+  rotate: false
+  xy: 0, 35
+  size: 109, 218
+  orig: 109, 218
+  offset: 0, 0
+  index: -1
+Manteau
+  rotate: false
+  xy: 112, 126
+  size: 149, 127
+  orig: 149, 127
+  offset: 0, 0
+  index: -1
+RArm
+  rotate: false
+  xy: 355, 101
+  size: 22, 35
+  orig: 22, 35
+  offset: 0, 0
+  index: -1
+RForearm
+  rotate: true
+  xy: 264, 102
+  size: 34, 43
+  orig: 34, 43
+  offset: 0, 0
+  index: -1
+RForearm2
+  rotate: false
+  xy: 789, 191
+  size: 59, 62
+  orig: 59, 62
+  offset: 0, 0
+  index: -1
+RShoulder
+  rotate: false
+  xy: 0, 0
+  size: 72, 32
+  orig: 72, 32
+  offset: 0, 0
+  index: -1
+RXiong
+  rotate: false
+  xy: 305, 67
+  size: 29, 31
+  orig: 29, 31
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: false
+  xy: 113, 8
+  size: 80, 28
+  orig: 82, 30
+  offset: 1, 1
+  index: -1
+TorsoBottom
+  rotate: false
+  xy: 851, 202
+  size: 64, 51
+  orig: 64, 51
+  offset: 0, 0
+  index: -1
+TorsoTop
+  rotate: true
+  xy: 709, 188
+  size: 65, 77
+  orig: 65, 77
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 789, 176
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1
+mouth2
+  rotate: false
+  xy: 772, 173
+  size: 14, 12
+  orig: 14, 12
+  offset: 0, 0
+  index: -1
+xx1
+  rotate: false
+  xy: 661, 157
+  size: 45, 44
+  orig: 46, 45
+  offset: 0, 0
+  index: -1
+xx2
+  rotate: true
+  xy: 310, 101
+  size: 35, 42
+  orig: 36, 43
+  offset: 0, 0
+  index: -1
+xx3
+  rotate: false
+  xy: 984, 167
+  size: 37, 37
+  orig: 37, 37
+  offset: 0, 0
+  index: -1
+xx4
+  rotate: false
+  xy: 75, 0
+  size: 35, 32
+  orig: 36, 35
+  offset: 0, 2
+  index: -1
+xx5
+  rotate: false
+  xy: 380, 107
+  size: 24, 31
+  orig: 26, 35
+  offset: 1, 2
+  index: -1
+xx6
+  rotate: true
+  xy: 984, 207
+  size: 46, 37
+  orig: 46, 37
+  offset: 0, 0
+  index: -1
