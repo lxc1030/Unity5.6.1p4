@@ -1,0 +1,27 @@
+
+chuan2.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+shuilang1
+  rotate: false
+  xy: 2, 65
+  size: 247, 61
+  orig: 247, 61
+  offset: 0, 0
+  index: -1
+shuilang2
+  rotate: false
+  xy: 2, 2
+  size: 247, 61
+  orig: 247, 61
+  offset: 0, 0
+  index: -1
+xiaochuan
+  rotate: false
+  xy: 251, 4
+  size: 153, 122
+  orig: 153, 122
+  offset: 0, 0
+  index: -1

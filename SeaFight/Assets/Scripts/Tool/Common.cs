@@ -1,18 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class Common : MonoBehaviour
 {
-    public static GameObject Generate(string path)
+    public static GameObject PrefabLoad(string path)
     {
-        return Instantiate(Resources.Load(path) as GameObject);
+        return (GameObject)Resources.Load(path, typeof(GameObject));
     }
 
     public static GameObject Generate(string path, Transform parent)
     {
-        return Generate(Resources.Load(path) as GameObject, parent);
+        Object obj = Resources.Load(path);
+        if (obj == null)
+        {
+            Debug.LogError("prefab = null,Check path:" + path);
+            return null;
+        }
+        if (parent == null)
+        {
+            Debug.LogError("parent = null,Check path:" + path);
+        }
+        return Generate(obj as GameObject, parent);
     }
 
     public static GameObject Generate(GameObject prefab, Transform parent)

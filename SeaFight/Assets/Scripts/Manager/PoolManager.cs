@@ -10,13 +10,16 @@ public class PoolManager : MonoBehaviour
 
     public Dictionary<PreLoadType, PoolInitInfo> poolInfo = new Dictionary<PreLoadType, PoolInitInfo>() {
         { PreLoadType.Control, new PoolInitInfo() { num = 2, path = DataController.prefPath_Control }},
-        { PreLoadType.Bullet, new PoolInitInfo() { num = 10, path = DataController.prefabPath_Bullet }},
+        //{ PreLoadType.Bullet, new PoolInitInfo() { num = 10, path = DataController.prefabPath_Bullet }},
         //{ PreLoadType.Character, new PoolInitInfo() { num = 10, path = DataController.prefabPath_Character }},
         { PreLoadType.CardHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_CardHurtParticle }},
         { PreLoadType.BoatHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BoatHurtParticle }},
         { PreLoadType.ShootParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_ShootParticle }},
-        { PreLoadType.Boat,new PoolInitInfo() { num = 10, path = DataController.prefabPath_Boat }},
+        //{ PreLoadType.Boat,new PoolInitInfo() { num = 10, path = DataController.prefabPath_Boat }},
         { PreLoadType.PeopleInfo,new PoolInitInfo() { num = 10, path = DataController.prefabPath_PeopleInfo }},
+        { PreLoadType.BoatDeadParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BoatDeadParticle }},
+        { PreLoadType.SelfHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_SelfHurtParticle }},
+        { PreLoadType.BulletDesParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BulletDesParticle }},
         
         //add
     };
@@ -140,11 +143,14 @@ public class PoolInitInfo
 public enum PreLoadType
 {
     Control,
-    Bullet,
+    //Bullet,
     //Character,
     CardHurtParticle,
     BoatHurtParticle,
     ShootParticle,
-    Boat,
+    //Boat,
     PeopleInfo,
+    BoatDeadParticle,
+    SelfHurtParticle,
+    BulletDesParticle,
 }

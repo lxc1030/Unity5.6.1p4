@@ -1,0 +1,272 @@
+
+fengxing.png
+size: 2048,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1111
+  rotate: false
+  xy: 984, 41
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+2222
+  rotate: false
+  xy: 1071, 43
+  size: 83, 83
+  orig: 83, 83
+  offset: 0, 0
+  index: -1
+3333
+  rotate: false
+  xy: 1156, 44
+  size: 83, 82
+  orig: 83, 82
+  offset: 0, 0
+  index: -1
+7777
+  rotate: false
+  xy: 1241, 104
+  size: 119, 22
+  orig: 119, 22
+  offset: 0, 0
+  index: -1
+Arrow
+  rotate: false
+  xy: 1362, 116
+  size: 64, 10
+  orig: 64, 10
+  offset: 0, 0
+  index: -1
+Arrow_1
+  rotate: false
+  xy: 775, 23
+  size: 84, 20
+  orig: 84, 20
+  offset: 0, 0
+  index: -1
+Eyes
+  rotate: false
+  xy: 775, 2
+  size: 65, 19
+  orig: 65, 19
+  offset: 0, 0
+  index: -1
+Eyes_7
+  rotate: false
+  xy: 775, 2
+  size: 65, 19
+  orig: 65, 19
+  offset: 0, 0
+  index: -1
+Eyes_1
+  rotate: false
+  xy: 395, 5
+  size: 53, 14
+  orig: 53, 14
+  offset: 0, 0
+  index: -1
+Eyes_3
+  rotate: false
+  xy: 450, 7
+  size: 51, 12
+  orig: 51, 12
+  offset: 0, 0
+  index: -1
+Eyes_6
+  rotate: false
+  xy: 876, 45
+  size: 58, 9
+  orig: 58, 9
+  offset: 0, 0
+  index: -1
+Head
+  rotate: false
+  xy: 664, 18
+  size: 109, 108
+  orig: 109, 108
+  offset: 0, 0
+  index: -1
+Head_1
+  rotate: true
+  xy: 2, 2
+  size: 31, 97
+  orig: 31, 97
+  offset: 0, 0
+  index: -1
+Head_2
+  rotate: true
+  xy: 203, 18
+  size: 36, 98
+  orig: 36, 98
+  offset: 0, 0
+  index: -1
+Head_3
+  rotate: true
+  xy: 526, 22
+  size: 104, 136
+  orig: 104, 136
+  offset: 0, 0
+  index: -1
+LEar
+  rotate: true
+  xy: 101, 18
+  size: 15, 33
+  orig: 15, 33
+  offset: 0, 0
+  index: -1
+LForearm
+  rotate: true
+  xy: 936, 32
+  size: 22, 46
+  orig: 22, 46
+  offset: 0, 0
+  index: -1
+LLeg
+  rotate: false
+  xy: 912, 6
+  size: 22, 37
+  orig: 22, 37
+  offset: 0, 0
+  index: -1
+LLeg_1
+  rotate: true
+  xy: 936, 8
+  size: 22, 46
+  orig: 22, 46
+  offset: 0, 0
+  index: -1
+LShoulder
+  rotate: false
+  xy: 1303, 68
+  size: 48, 34
+  orig: 48, 34
+  offset: 0, 0
+  index: -1
+MainWeapon
+  rotate: true
+  xy: 2, 35
+  size: 91, 199
+  orig: 91, 199
+  offset: 0, 0
+  index: -1
+Manteau
+  rotate: false
+  xy: 775, 45
+  size: 99, 81
+  orig: 99, 81
+  offset: 0, 0
+  index: -1
+RArm
+  rotate: true
+  xy: 984, 18
+  size: 21, 43
+  orig: 21, 43
+  offset: 0, 0
+  index: -1
+RForearm
+  rotate: true
+  xy: 861, 20
+  size: 23, 49
+  orig: 23, 49
+  offset: 0, 0
+  index: -1
+RLeg
+  rotate: true
+  xy: 1029, 16
+  size: 23, 38
+  orig: 23, 38
+  offset: 0, 0
+  index: -1
+RLeg_1
+  rotate: true
+  xy: 345, 2
+  size: 17, 48
+  orig: 17, 48
+  offset: 0, 0
+  index: -1
+RShoulder
+  rotate: true
+  xy: 303, 2
+  size: 52, 40
+  orig: 52, 40
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: false
+  xy: 203, 56
+  size: 171, 70
+  orig: 171, 70
+  offset: 0, 0
+  index: -1
+TorsoBottom
+  rotate: false
+  xy: 1303, 41
+  size: 48, 25
+  orig: 48, 25
+  offset: 0, 0
+  index: -1
+TorsoBottom_1
+  rotate: true
+  xy: 1362, 91
+  size: 23, 35
+  orig: 23, 35
+  offset: 0, 0
+  index: -1
+TorsoBottom_2
+  rotate: false
+  xy: 345, 23
+  size: 29, 31
+  orig: 29, 31
+  offset: 0, 0
+  index: -1
+TorsoBottom_3
+  rotate: true
+  xy: 136, 18
+  size: 15, 28
+  orig: 15, 28
+  offset: 0, 0
+  index: -1
+TorsoTop
+  rotate: true
+  xy: 1241, 55
+  size: 47, 60
+  orig: 47, 60
+  offset: 0, 0
+  index: -1
+ddfgd
+  rotate: false
+  xy: 1399, 93
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+dffdgfgdfg
+  rotate: false
+  xy: 1353, 57
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+drger
+  rotate: false
+  xy: 101, 2
+  size: 191, 14
+  orig: 191, 14
+  offset: 0, 0
+  index: -1
+fghhgf
+  rotate: false
+  xy: 376, 21
+  size: 148, 105
+  orig: 148, 105
+  offset: 0, 0
+  index: -1
+www
+  rotate: true
+  xy: 876, 56
+  size: 70, 106
+  orig: 70, 106
+  offset: 0, 0
+  index: -1

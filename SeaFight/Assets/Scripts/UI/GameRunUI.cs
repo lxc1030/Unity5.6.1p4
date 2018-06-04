@@ -8,7 +8,7 @@ public class GameRunUI : MonoBehaviour
 {
     public static GameRunUI instance;
     public static string Name = "GameRunUI";
-    
+
 
     private void Awake()
     {
@@ -36,6 +36,7 @@ public class GameRunUI : MonoBehaviour
     {
         UIManager.instance.HidePanel(Name);
     }
+
 
 
 
@@ -77,6 +78,12 @@ public class GameRunUI : MonoBehaviour
 
     #endregion
 
+
+
+    public void OnClickSkill1()
+    {
+        GameManager.instance.InitSkill(1);
+    }
 
 
     public void Update()

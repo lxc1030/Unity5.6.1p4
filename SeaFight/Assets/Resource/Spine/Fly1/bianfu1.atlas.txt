@@ -1,0 +1,202 @@
+
+bianfu1.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+0
+  rotate: false
+  xy: 819, 153
+  size: 59, 28
+  orig: 61, 31
+  offset: 1, 2
+  index: -1
+1
+  rotate: false
+  xy: 161, 12
+  size: 61, 27
+  orig: 61, 31
+  offset: 0, 2
+  index: -1
+2
+  rotate: false
+  xy: 1971, 478
+  size: 60, 31
+  orig: 61, 31
+  offset: 0, 0
+  index: -1
+5
+  rotate: true
+  xy: 995, 315
+  size: 73, 142
+  orig: 73, 142
+  offset: 0, 0
+  index: -1
+6
+  rotate: false
+  xy: 819, 184
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+7
+  rotate: false
+  xy: 970, 391
+  size: 194, 11
+  orig: 194, 11
+  offset: 0, 0
+  index: -1
+8
+  rotate: false
+  xy: 666, 149
+  size: 150, 137
+  orig: 150, 137
+  offset: 0, 0
+  index: -1
+Bady
+  rotate: false
+  xy: 236, 21
+  size: 166, 106
+  orig: 168, 108
+  offset: 1, 1
+  index: -1
+Head
+  rotate: false
+  xy: 405, 0
+  size: 124, 146
+  orig: 126, 148
+  offset: 1, 1
+  index: -1
+Head02
+  rotate: false
+  xy: 1167, 351
+  size: 77, 51
+  orig: 79, 53
+  offset: 1, 1
+  index: -1
+LLWing2
+  rotate: true
+  xy: 666, 383
+  size: 126, 301
+  orig: 128, 303
+  offset: 1, 1
+  index: -1
+LLWing3
+  rotate: false
+  xy: 161, 298
+  size: 233, 211
+  orig: 235, 213
+  offset: 1, 1
+  index: -1
+LLWing4
+  rotate: false
+  xy: 0, 198
+  size: 158, 311
+  orig: 160, 313
+  offset: 1, 1
+  index: -1
+LLWing5
+  rotate: true
+  xy: 397, 336
+  size: 173, 266
+  orig: 175, 268
+  offset: 1, 1
+  index: -1
+LWing1
+  rotate: false
+  xy: 1498, 343
+  size: 231, 166
+  orig: 233, 168
+  offset: 1, 1
+  index: -1
+LWing2
+  rotate: false
+  xy: 397, 208
+  size: 179, 125
+  orig: 181, 127
+  offset: 1, 1
+  index: -1
+LWing3
+  rotate: true
+  xy: 666, 289
+  size: 91, 193
+  orig: 93, 195
+  offset: 1, 1
+  index: -1
+RRWing
+  rotate: true
+  xy: 1732, 391
+  size: 118, 236
+  orig: 120, 238
+  offset: 1, 1
+  index: -1
+RRWing2
+  rotate: false
+  xy: 161, 42
+  size: 72, 253
+  orig: 74, 255
+  offset: 1, 1
+  index: -1
+RRWing3
+  rotate: false
+  xy: 0, 9
+  size: 158, 186
+  orig: 160, 188
+  offset: 1, 1
+  index: -1
+RRWing4
+  rotate: true
+  xy: 970, 405
+  size: 104, 274
+  orig: 106, 276
+  offset: 1, 1
+  index: -1
+RRWing5
+  rotate: true
+  xy: 1247, 341
+  size: 168, 248
+  orig: 170, 250
+  offset: 1, 1
+  index: -1
+RWing1
+  rotate: false
+  xy: 995, 225
+  size: 115, 87
+  orig: 117, 89
+  offset: 1, 1
+  index: -1
+RWing2
+  rotate: false
+  xy: 862, 267
+  size: 130, 113
+  orig: 132, 115
+  offset: 1, 1
+  index: -1
+RWing3
+  rotate: false
+  xy: 579, 174
+  size: 84, 159
+  orig: 86, 161
+  offset: 1, 1
+  index: -1
+Shadow
+  rotate: false
+  xy: 389, 152
+  size: 160, 53
+  orig: 162, 55
+  offset: 1, 1
+  index: -1
+sdfbvsdf
+  rotate: false
+  xy: 1732, 303
+  size: 213, 85
+  orig: 215, 87
+  offset: 1, 1
+  index: -1
+sdfhgsfd
+  rotate: false
+  xy: 236, 130
+  size: 150, 165
+  orig: 152, 167
+  offset: 1, 1
+  index: -1

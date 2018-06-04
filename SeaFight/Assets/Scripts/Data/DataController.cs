@@ -68,13 +68,17 @@ public class DataController : MonoBehaviour
 
     //prefab
     public const string prefPath_Control = "prefab/Controller";
-    public const string prefabPath_Bullet = "prefab/Bullet";
+    public const string prefabPath_Bullet = "bullet/";
     public const string prefabPath_Character = "prefab/Card_";
     public const string prefabPath_CardHurtParticle = "prefab/CardHurtParticle";
     public const string prefabPath_BoatHurtParticle = "prefab/BoatHurtParticle";
     public const string prefabPath_ShootParticle = "prefab/ShootParticle";
-    public const string prefabPath_Boat = "prefab/BoatPrefab";
+    public const string prefabPath_Boat = "prefab/Boat_";
     public const string prefabPath_PeopleInfo = "prefab/PeopleInfo";
+    public const string prefabPath_BoatDeadParticle = "prefab/BoatDeadParticle";
+    public const string prefabPath_SelfHurtParticle = "prefab/SelfHurtParticle";
+    public const string prefabPath_BulletDesParticle = "prefab/BulletDesParticle";
+    public const string pPath_bulletGroup = "prefab/";
 
 
 
@@ -82,8 +86,10 @@ public class DataController : MonoBehaviour
     public const string materialPathBox = "prefab/Material/Box/";
     public const string materialPathKillCount = "prefab/Material/KillCount/";
 
-    public Vector2 orgPos;//主角生成位置
-    public Vector2 endPos;//怪物生成位置
+    public Vector3 playerPos;//主角生成位置
+    public Vector3 bossPos;//怪物生成位置
+    public float supportPosX;
+    public float[] supportPosY;//后排3个支援单位
 
     public float moveSpeed;//主角遥杆移动速度
     public float shootRange;//主角普通距离
@@ -235,12 +241,13 @@ public enum Tag
     Player,
     Enemy,
     Boat,
+    Support,
 }
 
 public enum BoatType
 {
-    NoBullet,
-    NormalBullet,
+    NormalAttack,
+    SuicideAttack,
     Max,
 }
 public enum RenderType

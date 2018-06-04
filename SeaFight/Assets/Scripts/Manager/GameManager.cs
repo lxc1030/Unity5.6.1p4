@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameState CurState;
 
     public Transform transMy;
+    public Transform transSupport;
     public Transform transEnemy;
     public Transform transBullet;
     public Transform transHurt;
@@ -24,11 +25,12 @@ public class GameManager : MonoBehaviour
     public Controller myControl;
 
     public List<int> cardIndexs;
+    public List<int> supportIndexs;
     public List<int> enemyIndexs;
     public List<int> boatIndexs;
 
+    public List<SupportInfo> showSupport;
 
-    public List<CharacterInfo> allModel;
     public List<GameObject> showEnemy;
 
     #region 相机相关参数
@@ -40,6 +42,9 @@ public class GameManager : MonoBehaviour
     public Rect followLimet /*= new Rect(0, 1, 0, 10)*/;
 
     public float followFixTime = 0.3f;
+
+
+    public float cameraAngle;
 
     #endregion
 
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         ChangeState(GameState.游戏未开始);
+        cameraAngle = gameCamera.transform.localEulerAngles.x;
     }
     public void ChangeState(GameState state)
     {
@@ -92,6 +98,7 @@ public class GameManager : MonoBehaviour
         SetCameraInit();
 
         GenerateMyControl();
+        GenerateSupport();
         TestGenerateEnemy();
 
         ChangeState(GameState.开始战斗);
@@ -100,72 +107,121 @@ public class GameManager : MonoBehaviour
     private void GenerateMyControl()
     {
         GameObject obj = null;
-        //obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transMy);
-        Vector3 pos = new Vector3(-20, 0, 0);
-        //obj.transform.localPosition = pos;
-        //myControl = obj.GetComponent<Controller>();
-        //myControl.Init(cardIndexs, false);
-        //myControl.transform.DOLocalMove(DataController.instance.orgPos, 0.5f);
-
-        allModel = new List<CharacterInfo>();
-        bool isEnemy = false;
-        for (int i = 0; i < cardIndexs.Count; i++)
-        {
-            obj = Common.Generate(DataController.prefabPath_Character + cardIndexs[i], transMy);
-            obj.transform.localPosition = pos;
-
-            CharacterInfo info = obj.GetComponent<CharacterInfo>();
-            info.Init(cardIndexs[i], isEnemy);
-            if (isEnemy)
-            {
-                obj.tag = nameof(Tag.Enemy);
-                info.AnimationObj.transform.localEulerAngles = new Vector3(0, 180, 0);
-            }
-            else
-            {
-                obj.tag = nameof(Tag.Player);
-                info.AnimationObj.transform.localEulerAngles = new Vector3(0, 0, 0);
-            }
-            allModel.Add(info);
-        }
-
-        endPoses = new Vector2[] { DataController.instance.orgPos, DataController.instance.orgPos, DataController.instance.orgPos };
+        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transMy);
+        obj.transform.position = DataController.instance.playerPos - new Vector3(3, 0, 0);
+        myControl = obj.GetComponent<Controller>();
+        myControl.Init(cardIndexs);
+        myControl.transform.DOMove(DataController.instance.playerPos, 0.5f);
     }
-
+    private void GenerateSupport()
+    {
+        for (int i = 0; i < supportIndexs.Count; i++)
+        {
+            GameObject obj = null;
+            obj = Common.Generate(DataController.prefabPath_Character + supportIndexs[i], transSupport);
+            Vector3 pos = new Vector3(DataController.instance.supportPosX, 0, 0);
+            obj.transform.position = pos;
+            obj.transform.DOMove(new Vector2(DataController.instance.supportPosX, DataController.instance.supportPosY[i]), 0.5f);
+            //
+            SupportInfo info = obj.GetComponent<SupportInfo>();
+            info.Init(supportIndexs[i], true);
+            //
+            CardInfo cardInfo = info.cardInfo;
+            cardInfo.myTag = Tag.Support;
+            cardInfo.isEnemy = false;
+            cardInfo.Hp = GameManager.BackCardHp(info.myIndex);
+            cardInfo.Atk = GameManager.BackCardAtk(info.myIndex);
+            cardInfo.myName = "支援->" + (int)info.myIndex;
+            cardInfo.SetInit();
+            //
+            showSupport.Add(info);
+        }
+    }
     private void TestGenerateEnemy()
     {
-        GameObject obj = null;
-        Controller con = null;
-        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transEnemy);
-        obj.tag = nameof(Tag.Enemy);
-        con = obj.GetComponent<Controller>();
-        con.Init(enemyIndexs);
-        Vector3 pos = new Vector3(20, 0, 0);
-        obj.transform.localPosition = pos;
-        obj.transform.DOLocalMove(DataController.instance.endPos, 0.5f);
-        showEnemy.Add(obj);
+        //Controller con = null;
+        //obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transEnemy);
+        //obj.tag = nameof(Tag.Enemy);
+        //con = obj.GetComponent<Controller>();
+        for (int i = 0; i < enemyIndexs.Count; i++)
+        {
+            GameObject obj = null;
+            obj = Common.Generate(DataController.prefabPath_Character + enemyIndexs[i], transEnemy);
+            obj.transform.position = DataController.instance.bossPos + new Vector3(3, 0, 0);
+            obj.transform.DOMove(DataController.instance.bossPos, 0.5f);
+            //
+            CharacterInfo info = obj.GetComponent<CharacterInfo>();
+            info.Init(enemyIndexs[i], true);
+            //
+            CardInfo cardInfo = info.cardInfo;
+            cardInfo.myTag = Tag.Enemy;
+            cardInfo.isEnemy = false;
+            cardInfo.Hp = GameManager.BackCardHp(info.myIndex);
+            cardInfo.Atk = GameManager.BackCardAtk(info.myIndex);
+            cardInfo.myName = "敌方->" + (int)info.myIndex;
+            cardInfo.SetInit();
+            //转向面向主角
+            info.AnimationObj.localScale = new Vector3(-1, 1, 1);
+            showEnemy.Add(obj);
+            //
+            RandomMove erMove = obj.AddComponent<RandomMove>();
+            float radius = 1.5f;
+            erMove.center = new Vector3(DataController.instance.bossPos.x, 0, myControl.transform.position.z) + new Vector3(radius, 0);
+            erMove.radius = radius;
+            erMove.timeRandom = new Vector2(2, 5);
+            erMove.Init();
+        }
     }
 
     private void TestBoat()
     {
+        int typeIndex = -1;
+        float select = UnityEngine.Random.Range(0, 100);
+        if (select >= 0 && select < 70)
+        {
+            typeIndex = (int)BoatType.NormalAttack;
+        }
+        else if (select >= 70 && select < 100)
+        {
+            typeIndex = (int)BoatType.SuicideAttack;
+        }
+
         GameObject obj = null;
-        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Boat, transEnemy);
+        obj = Common.Generate(DataController.prefabPath_Boat + typeIndex, transEnemy);
         obj.tag = nameof(Tag.Boat);
         BoatInfo info = obj.GetComponent<BoatInfo>();
-        int typeIndex = UnityEngine.Random.Range((int)BoatType.NoBullet, (int)BoatType.Max);
-        Vector3 pos = new Vector3(7, UnityEngine.Random.Range(DataController.instance.limetControlTop, DataController.instance.limetControlBottom), 0);
+        //
+        Vector3 pos = new Vector3(7, 0, UnityEngine.Random.Range(DataController.instance.limetControlTop, DataController.instance.limetControlBottom));
         float speed = 0;
+        //
+        CardInfo cardInfo = info.cardInfo;
+        cardInfo.myTag = Tag.Boat;
+        cardInfo.isEnemy = true;
+        cardInfo.Hp = GameManager.BackBoatHp((BoatType)typeIndex);
+        cardInfo.Atk = GameManager.BackBoatAtk((BoatType)typeIndex);
+        cardInfo.myName = "船只->" + (int)typeIndex;
+        cardInfo.SetInit();
+        //
         switch ((BoatType)typeIndex)
         {
-            case BoatType.NoBullet:
-                speed = 2f;
-                break;
-            case BoatType.NormalBullet:
+            case BoatType.NormalAttack:
                 speed = 0.5f;
                 break;
+            case BoatType.SuicideAttack:
+                speed = 6f;
+                break;
         }
-        info.Init((BoatType)typeIndex, pos, speed);
+        info.Init(pos, speed);
+        //
         showEnemy.Add(obj);
+    }
+
+
+    public static float BackAngleOfTarget(Vector3 targetPos, Vector3 shootPoint)
+    {
+        float angle = Mathf.Atan2(targetPos.z - shootPoint.z, targetPos.x - shootPoint.x);
+        angle = 180 / Mathf.PI * angle;
+        return angle;
     }
 
 
@@ -187,7 +243,16 @@ public class GameManager : MonoBehaviour
                 Atk = 10;
                 break;
             case 4:
-                Atk = 1;
+                Atk = 10;
+                break;
+            case 5:
+                Atk = 10;
+                break;
+            case 6:
+                Atk = 10;
+                break;
+            default:
+                Atk = 10;
                 break;
         }
         return Atk;
@@ -198,7 +263,7 @@ public class GameManager : MonoBehaviour
         switch (index)
         {
             case 0:
-                Hp = 1000;
+                Hp = 100000;
                 break;
             case 1:
                 Hp = 200;
@@ -210,10 +275,16 @@ public class GameManager : MonoBehaviour
                 Hp = 200;
                 break;
             case 4:
-                Hp = 40;
+                Hp = 2000;
                 break;
             case 5:
-                Hp = 200;
+                Hp = 2000;
+                break;
+            case 6:
+                Hp = 2000;
+                break;
+            default:
+                Hp = 10000;
                 break;
         }
         return Hp;
@@ -223,11 +294,11 @@ public class GameManager : MonoBehaviour
         float hp = 0;
         switch (type)
         {
-            case BoatType.NoBullet:
-                hp = 40;
+            case BoatType.NormalAttack:
+                hp = 100;
                 break;
-            case BoatType.NormalBullet:
-                hp = 200;
+            case BoatType.SuicideAttack:
+                hp = 1000;
                 break;
         }
         return hp;
@@ -237,11 +308,11 @@ public class GameManager : MonoBehaviour
         float atk = 0;
         switch (type)
         {
-            case BoatType.NoBullet:
-                atk = 0;
+            case BoatType.NormalAttack:
+                atk = 1;
                 break;
-            case BoatType.NormalBullet:
-                atk = 10;
+            case BoatType.SuicideAttack:
+                atk = 50;
                 break;
         }
         return atk;
@@ -278,61 +349,27 @@ public class GameManager : MonoBehaviour
     private void SetGaming()
     {
         GameRunUI.Show();
-
+        //敌人AI移动
+        for (int i = 0; i < showEnemy.Count; i++)
+        {
+            showEnemy[i].GetComponent<RandomMove>().SetMove();
+        }
+        //后排计时开始
+        for (int i = 0; i < showSupport.Count; i++)
+        {
+            showSupport[i].SetMark();
+        }
     }
 
-
-    public Vector2[] endPoses;
-
-    public float Vt;
-    public Vector2 a;
-    public float span = 0.1f;
     public void CharacterMove(Vector2 move)
     {
         float time = Time.deltaTime;
-
-
-        Vector2 saveMove = -move;
-        //Vector2 add = move * DataController.instance.moveSpeed * Time.deltaTime;
-        //myControl.SetMove(add);
-
-        Vector2 curPos;
-
-        curPos = allModel[0].transform.localPosition;
-        move *= span * Time.deltaTime;
-        GameManager.instance.LimetControlY(curPos, ref move);
-        endPoses = new Vector2[allModel.Count];
-
-        for (int i = 0; i < endPoses.Length; i++)
-        {
-            endPoses[i] = BackVecByDirection(curPos, saveMove.normalized) * i;
-        }
-        //allModel[0].transform.position += (Vector3)move;
-
-        CardMoveTowards();
-    }
-
-    public float speed = 1;
-    private void CardMoveTowards()
-    {
-        for (int i = 0; i < allModel.Count; i++)
-        {
-            //allModel[i].transform.Translate((allModel[i].transform.localPosition - (Vector3)endPoses[i]).normalized * Time.deltaTime);
-
-            if (Vector3.Distance(endPoses[i], allModel[i].transform.localPosition) > 0.05f)
-            {
-                Vector2 offSet = endPoses[i] - (Vector2)allModel[i].transform.localPosition;
-                allModel[i].transform.localPosition += (Vector3)offSet.normalized * speed * Time.deltaTime;
-            }
-        }
+        myControl.SetMove(new Vector3(move.x, 0, move.y) * time);
     }
 
 
-    private Vector2 BackVecByDirection(Vector2 pos, Vector2 dir)
-    {
-        return pos + dir;
-    }
 
+    #region 射击判断
 
     public void ShootEnemy(CharacterInfo card)
     {
@@ -356,51 +393,118 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShootFree(CharacterInfo card)
+    public void ShootController<T>(T t, Vector3 checkPos, float shootRange)
     {
+        bool isHave = false; ;
+        int index = -1;
+        List<GameObject> objs = new List<GameObject>();
+        for (int i = 0; i < myControl.allModel.Count; i++)
+        {
+            objs.Add(myControl.allModel[i].gameObject);
+        }
 
+        CharacterInfo cInfo = t as CharacterInfo;
+        BoatInfo bInfo = t as BoatInfo;
+
+        //switch (tag)
+        //{
+        //    case Tag.Enemy:
+        //        cInfo = t as CharacterInfo;
+        //        checkPos = cInfo.transform.position;
+        //        break;
+        //    case Tag.Boat:
+        //        bInfo = t as BoatInfo;
+        //        checkPos = bInfo.transform.position;
+        //        break;
+        //}
+        GetShootInfo(objs, checkPos, shootRange, ref isHave, ref index);
+        if (isHave)
+        {
+            if (cInfo != null)
+            {
+                cInfo.Shoot(myControl.allModel[index].gameObject);
+            }
+            if (bInfo != null)
+            {
+                bInfo.Shoot(myControl.allModel[index].gameObject);
+            }
+        }
     }
+    private void GetShootInfo(List<GameObject> targets, Vector3 check, float checkDis, ref bool isHave, ref int index)
+    {
+        for (int i = 0; i < myControl.allModel.Count; i++)
+        {
+            float distance = Vector2.Distance(check, myControl.allModel[i].transform.position);
+
+            if (distance <= checkDis)
+            {
+                isHave = true;
+                index = i;
+                checkDis = distance;
+            }
+        }
+    }
+
+    #endregion
+
+
 
     #region 限制移动区域
 
     private float distanceCCY;
     private void LimetCameraY()
     {
-        if (myControl != null)
-        {
-            distanceCCY = myControl.transform.localPosition.y - gameCamera.transform.localPosition.y;
-            if (Mathf.Abs(distanceCCY) > DataController.instance.limetCameraYLength)
-            {
-                float y = myControl.transform.localPosition.y + (distanceCCY > 0 ? -1 : 1) * DataController.instance.limetCameraYLength;
-                if (y < DataController.instance.limetCameraTop && y > DataController.instance.limetCameraBottom)
-                {
-                    gameCamera.transform.localPosition = new Vector3(gameCamera.transform.localPosition.x, y, gameCamera.transform.localPosition.z);
-                }
-                else
-                {
-                    //超过相机设置限制上下区域，相机不移动
-                }
-            }
-        }
+        //if (myControl != null)
+        //{
+        //    distanceCCY = myControl.transform.localPosition.y - gameCamera.transform.localPosition.y;
+        //    if (Mathf.Abs(distanceCCY) > DataController.instance.limetCameraYLength)
+        //    {
+        //        float y = myControl.transform.localPosition.y + (distanceCCY > 0 ? -1 : 1) * DataController.instance.limetCameraYLength;
+        //        if (y < DataController.instance.limetCameraTop && y > DataController.instance.limetCameraBottom)
+        //        {
+        //            gameCamera.transform.localPosition = new Vector3(gameCamera.transform.localPosition.x, y, gameCamera.transform.localPosition.z);
+        //        }
+        //        else
+        //        {
+        //            //超过相机设置限制上下区域，相机不移动
+        //        }
+        //    }
+        //}
     }
 
-    public void LimetControlY(Vector2 pos, ref Vector2 add)
+    public void LimetControlZ(Vector3 pos, ref Vector3 add)
     {
         if (myControl != null)
         {
-            Vector2 end = pos + add;
-            if (end.y < DataController.instance.limetControlTop && end.y > DataController.instance.limetControlBottom)
+            Vector3 end = pos + add;
+            if (end.z < DataController.instance.limetControlTop && end.z > DataController.instance.limetControlBottom)
             {
                 //在限制区域内，可以移动
             }
             else
             {
-                add = new Vector2(add.x, 0);
+                add = new Vector3(add.x, 0);
+            }
+        }
+    }
+    public void LimetControlZ(ref Vector3 fixPos)
+    {
+        if (myControl != null)
+        {
+            if (fixPos.z > DataController.instance.limetControlTop)
+            {
+                fixPos.z = DataController.instance.limetControlTop;
+            }
+            if (fixPos.z < DataController.instance.limetControlBottom)
+            {
+                fixPos.z = DataController.instance.limetControlBottom;
             }
         }
     }
 
+
     #endregion
+
 
     public void SetParticle(PreLoadType type, Vector3 pos, bool isWorld = false)
     {
@@ -416,6 +520,18 @@ public class GameManager : MonoBehaviour
             case PreLoadType.ShootParticle:
                 trans = transShoot;
                 break;
+            case PreLoadType.BoatDeadParticle:
+                trans = transHurt;
+                break;
+            case PreLoadType.SelfHurtParticle:
+                trans = transHurt;
+                break;
+            case PreLoadType.BulletDesParticle:
+                trans = transHurt;
+                break;
+            default:
+                Debug.LogError("type：" + type + "特效未设置节点");
+                break;
         }
         GameObject obj = null;
         obj = PoolManager.instance.GetPoolObjByType(type, trans);
@@ -429,6 +545,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void DeleteBoat(GameObject obj)
+    {
+        DeleteEnemy(obj);
+        SetCameraShake();
+    }
+    public void DeleteEnemy(GameObject obj)
+    {
+        GameObject remove = obj;
+        showEnemy.Remove(obj);
+        Destroy(remove);
+    }
+
+    public void SetCameraShake()
+    {
+        gameCamera.DOShakePosition(0.2f, 0.3f, 39, 90);
+    }
+    public void InitSkill(int type)
+    {
+        Debug.LogError("使用技能->" + type);
+        switch (type)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+        }
+    }
 
 
     public float BoatCD;
@@ -437,7 +580,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         LimetCameraY();
-        CardMoveTowards();
         if (CurState == GameState.开始战斗)
         {
             BoatCD += Time.deltaTime;
@@ -450,14 +592,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
-
     [ContextMenu("角度")]
     void SetCameraInit()
     {
         gameCamera.gameObject.SetActive(true);
-        gameCamera.transform.localPosition = Vector3.forward * cameraDistance / 100;
-        gameCamera.fieldOfView = 2 * Mathf.Atan(UIManager.instance.ScreenScale.y * 0.5f / Mathf.Abs(cameraDistance)) * Mathf.Rad2Deg;
     }
 
 }

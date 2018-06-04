@@ -1,0 +1,14 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Card_6 : SupportInfo
+{
+
+    public override void DoTimeLogic()
+    {
+        base.DoTimeLogic();
+
+        Debug.LogError("加血");
+    }
+}
