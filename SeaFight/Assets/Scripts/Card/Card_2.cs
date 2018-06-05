@@ -21,9 +21,8 @@ public class Card_2 : CharacterInfo
                 bulletGroupCount = 0;
                 //
                 GameObject obj = Common.Generate(DataController.prefabPath_Bullet + nameof(BulletGroup_4), GameManager.instance.transBullet);
-                obj.transform.position = shootPoint.position;
+                obj.transform.position = new Vector3(shootPoint.position.x, 0, shootPoint.position.z);
                 BulletGroup_4 info = obj.GetComponent<BulletGroup_4>();
-                info.parent = shootPoint;
                 info.prefab = Common.PrefabLoad(DataController.prefabPath_Bullet + myIndex);//子弹类型
                 info.startAngle = angle;
                 info.cardInfo = cardInfo;

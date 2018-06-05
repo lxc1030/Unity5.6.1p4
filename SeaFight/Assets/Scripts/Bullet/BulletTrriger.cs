@@ -6,9 +6,27 @@ public class BulletTrriger : MonoBehaviour
 {
     public BulletMove myMove;
 
-    public Vector3 addRotation;
+    public Vector3 Rotation;
     public Vector3 RotateSpeed;
-    private Vector3 saveRotation;
+    Transform cam = null;
+
+
+    public void Init()
+    {
+        if (GameManager.instance != null)
+        {
+            cam = GameManager.instance.gameCamera.transform;
+        }
+        if (cam != null)//正交相机只需要朝向一次
+        {
+            Quaternion qt = Quaternion.LookRotation(cam.forward, cam.up);
+            //Quaternion ro = Quaternion.Euler(Rotation);
+            //qt *= ro;
+            transform.rotation = qt;
+            transform.Rotate(Rotation, Space.Self);
+        }
+    }
+
 
     void OnTriggerEnter(Collider coll)
     {
@@ -18,22 +36,9 @@ public class BulletTrriger : MonoBehaviour
 
     private void Update()
     {
-        Transform cam = null;
-        if (GameManager.instance != null)
+        if (RotateSpeed != Vector3.zero)//自身旋转
         {
-            cam = GameManager.instance.gameCamera.transform;
-        }
-        if (cam != null)
-        {
-            if (RotateSpeed != Vector3.zero)//自身旋转
-            {
-                transform.Rotate(RotateSpeed * Time.deltaTime);
-            }
-            else
-            {
-                Quaternion qt = Quaternion.LookRotation(cam.forward, cam.up);
-                transform.rotation = qt;
-            }
+            transform.Rotate(RotateSpeed * Time.deltaTime);
         }
     }
 

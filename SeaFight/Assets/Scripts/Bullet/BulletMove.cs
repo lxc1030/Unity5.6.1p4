@@ -35,8 +35,9 @@ public class BulletMove : MonoBehaviour
     }
     public void SetEulerAngle(Vector3 rotation, Vector3 spanRotate = new Vector3())
     {
-        all.addRotation = rotation;
+        all.Rotation = rotation;
         all.RotateSpeed = spanRotate;
+        all.Init();
     }
 
 

@@ -23,7 +23,6 @@ public class BulletGroup_3 : MonoBehaviour
     #region 需要设置的值--不然就会使用默认的
     public CardInfo cardInfo;
     public float startAngle;
-    public Transform parent;
     public GameObject prefab;
 
     #endregion
@@ -48,7 +47,7 @@ public class BulletGroup_3 : MonoBehaviour
             Vector3 moveDir = new Vector3(x1, 0, z1).normalized;
 
             GameObject obj = Common.Generate(prefab, transform);
-            obj.transform.position = parent.position;
+            obj.transform.localPosition = Vector3.zero;
             //obj.transform.eulerAngles = new Vector3(0, 0, tempAngle);
             BulletMove bMove = obj.GetComponent<BulletMove>();
             bMove.SetEulerAngle(new Vector3(0, 0, -angleSpan[i]));
@@ -68,20 +67,22 @@ public class BulletGroup_3 : MonoBehaviour
         yield return Yielders.WaitSecond(delayYuLei);
         for (int i = 0; i < yuLeiAngle.Length; i++)
         {
-            float tempAngle = (startAngle + i * 360 / yuLeiAngle.Length);
-            float x1 = radius * Mathf.Cos(tempAngle * Mathf.PI / 180);
-            float z1 = radius * Mathf.Sin(tempAngle * Mathf.PI / 180);
+            float posAngle = startAngle + (i * 360 / yuLeiAngle.Length);
+            float x1 = radius * Mathf.Cos(posAngle * Mathf.PI / 180);
+            float z1 = radius * Mathf.Sin(posAngle * Mathf.PI / 180);
+            Vector3 setPosition = new Vector3(x1, 0, z1);
 
-            float moveAngle = startAngle + yuLeiAngle[i];
-            float x2 = radius * Mathf.Cos(moveAngle * Mathf.PI / 180);
-            float z2 = radius * Mathf.Sin(moveAngle * Mathf.PI / 180);
+            float lookAngle = startAngle + yuLeiAngle[i];
+            float x2 = radius * Mathf.Cos(lookAngle * Mathf.PI / 180);
+            float z2 = radius * Mathf.Sin(lookAngle * Mathf.PI / 180);
             Vector3 moveDir = new Vector3(x2, 0, z2).normalized;
 
             GameObject obj = Common.Generate(prefab2, transform);
-            obj.transform.position = parent.position + new Vector3(x1, 0, z1);
+            obj.transform.localPosition = Vector3.zero;
+            obj.transform.position += setPosition;
             //obj.transform.eulerAngles = new Vector3(0, 0, startAngle + yuLeiAngle[i]);
             BulletMove bMove = obj.GetComponent<BulletMove>();
-            bMove.SetEulerAngle(new Vector3(0, 0, tempAngle));
+            bMove.SetEulerAngle(new Vector3(0, 0, lookAngle));
             Tag myTag = Tag.Bullet;
             float atk = 0;
             if (cardInfo != null)

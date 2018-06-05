@@ -1,0 +1,837 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{B12D0E31-617F-6AA0-7199-9FB1033102A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_1;UNITY_5_6;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;SanWang;UNITY_HAS_GOOGLEVR</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>D:/Unity5.6.1/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>D:/Unity5.6.1/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\CSharp vNext Support\AsyncTools\AsyncTools.cs" />
+     <Compile Include="Assets\CSharp vNext Support\AsyncTools\UnityScheduler.cs" />
+     <Compile Include="Assets\CSharp vNext Support\AsyncTools\UnitySynchronizationContext.cs" />
+     <Compile Include="Assets\CSharp vNext Support\AsyncTools\UnityTaskScheduler.cs" />
+     <Compile Include="Assets\CSharp vNext Support\FormattableString\FormattableString.cs" />
+     <Compile Include="Assets\CSharp vNext Support\FormattableString\FormattableStringFactory.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Interpolation\IInterpolatedArray2.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Interpolation\InterpolatedArray.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Interpolation\InterpolatedArray2f.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Queues\DictionaryQueue.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Queues\SetQueue.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Scheduler\ICoroutine.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Scheduler\IScheduler.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Scheduler\Scheduler.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Tasks\ICancelToken.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Tasks\IThreadedTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Tasks\TaskListener.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Threading\Tasks\ThreadedTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\CBUtility.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\DisableFog.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\DisableGameObject.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\DisableShadows.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\ExtendedFind.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\FPSCounter.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\NotifyOnEvent.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\NotifyOnRenderObject.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\NotifyOnWillRender.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\Quit.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\RTUtility.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\RotateLight.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Common\Unity\Wireframe.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Grids\OceanGridBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Grids\ProjectedGrid.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Buoyancy\Buoyancy.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Buoyancy\BuoyantStructure.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Buoyancy\StickToSurface.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\IOceanTime.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\IProjection.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\IgnoreOceanEvents.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Ocean.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\OceanCameraSettings.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\OceanComponent.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\OceanData.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\OceanTime.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\OceanUtility.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddAutoShoreMask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddFoamThruster.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddFoamTrail.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddShoreMask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddWaveOverlay.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\AddWaveOverlayBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\FoamOverlay.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\OverlayManager.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\OverlayTexture.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Overlays\WaveOverlay.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Projection3d.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Projection3f.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Querys\WaveQuery.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Ocean\Querys\WaveQueryTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Reflections\PlanarReflection.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Reflections\ReflectionBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Reflections\ReflectionCameraCullingDistances.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\DisplacementBufferCPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\DisplacementBufferGPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\IDisplacementBuffer.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\QueryDisplacements.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\WaveSpectrumBuffer.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\WaveSpectrumBufferCPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Buffers\WaveSpectrumBufferGPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\CustomWaveSpectrumCondition.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\ISpectrum.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\PhillipsSpectrum.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\PhillipsSpectrumCondition.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\PhillipsSpectrumConditionKey.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\UnifiedPhillipsSpectrumCondition.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\UnifiedSpectrum.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\UnifiedSpectrumCondition.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\UnifiedSpectrumConditionKey.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\WaveSpectrumCondition.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Conditions\WaveSpectrumConditionKey.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\CustomWaveSpectrumExample.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Fourier\FourierCPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Fourier\FourierGPU.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\ICustomWaveSpectrum.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Tasks\FindRangeTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Tasks\FourierTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Tasks\InitSpectrumDisplacementsTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\Tasks\SpectrumTask.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\WaveSpectrum.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Spectrum\WaveSpectrumBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\IRefractionCommand.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\RefractionCommand.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\RefractionCommandBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\UnderWater.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\UnderWaterBase.cs" />
+     <Compile Include="Assets\Ceto\Scripts\UnderWater\UnderWaterPostEffect.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\AddRenderTarget.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\DisplayTexture.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\FreeCam.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\GUIDisplay.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\ImageBlur.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\ShipCamera.cs" />
+     <Compile Include="Assets\Ceto\Scripts\Utility\ShoreMaskGenerator.cs" />
+     <Compile Include="Assets\DOTween Examples\Basics.cs" />
+     <Compile Include="Assets\DOTween Examples\CustomPlugin Example\CustomPluginExampleBrain.cs" />
+     <Compile Include="Assets\DOTween Examples\CustomPlugin Example\CustomRange.cs" />
+     <Compile Include="Assets\DOTween Examples\CustomPlugin Example\CustomRangePlugin.cs" />
+     <Compile Include="Assets\DOTween Examples\Example Assets\DragTarget.cs" />
+     <Compile Include="Assets\DOTween Examples\Follow.cs" />
+     <Compile Include="Assets\DOTween Examples\Materials.cs" />
+     <Compile Include="Assets\DOTween Examples\Paths.cs" />
+     <Compile Include="Assets\DOTween Examples\Sequences.cs" />
+     <Compile Include="Assets\DOTween Examples\UGUI.cs" />
+     <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\AdvancedExamples\AutoSelect\MultiLayerTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\AdvancedExamples\AutoSelect\MultiLayerUI.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\AdvancedExamples\MultiCamera\MultiCameraTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\AdvancedExamples\MultiCamera\MultiCameraUI.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\GameExemple\RTSExample\CubeSelect.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\GameExemple\RTSExample\RTSCamera.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\GameExemple\RunBall\Ball.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\GameExemple\RunBall\BallRunPlayer.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\GameExemple\RunBall\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\LoadExamples.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\MultiFinger\FingerTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\MultiFinger\MutliFingersScreenTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\DoubleTapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\DragMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\LongTapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\Swipe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\TapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\OneFinger\TouchMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\PinchMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TooglePickMethodUI.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwistMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoDoubleTapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoDragMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoLongTapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoSwipe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoTapMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\SimpleExamples\TwoFingers\TwoTouchMe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UICompatibility\ETWindow.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UICompatibility\GlobalEasyTouchEvent.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UICompatibility\UICompatibility.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UICompatibility\UIWindow.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UITwistPinch\UIDrag.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UITwistPinch\UIPinch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\4.X\UnityUI\UITwistPinch\UITwist.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\5.X new features\Script\RTS_NewSyntaxe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Examples\5.X new features\Script\SimpleActionExample.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\EasyTouchTrigger.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickBase.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickDrag.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickEnterOverExist.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickLongTap.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickPinch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickSwipe.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickTap.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Components\QuickTwist.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\BaseFinger.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\ECamera.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\EasyTouch.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\EasyTouchInput.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\Finger.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\Gesture.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouch\Plugins\Engine\TwoFingerGesture.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Component\ETCSetDirectActionTransform.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\Button-Event-Input\ButtonInputUI.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\Button-Event-Input\ButtonUIEvent.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\ControlEventInput\ControlUIEvent.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\ControlEventInput\ControlUIInput.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\DPadClassicalTime\DPadParameterUI.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\FPSExample\FPSPlayerControl.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\FPSExample\ImpactEffect.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\JoystickParameter\AxisXUi.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\TouchPad-Event-Input\TouchPadUIEvent.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 2.X_New Features\Script\CharacterAnimation.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 2.X_New Features\Script\CharacterAnimationDungeon.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Examples\_Medias\SliderText.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ComponentExtensions.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCArea.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCAxis.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCBase.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCButton.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCDPad.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCInput.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCJoystick.cs" />
+     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCTouchPad.cs" />
+     <Compile Include="Assets\Scenes\Test.cs" />
+     <Compile Include="Assets\Scenes\TestMoveToSame.cs" />
+     <Compile Include="Assets\Scripts\Boat\BoatInfo.cs" />
+     <Compile Include="Assets\Scripts\Boat\Boat_0.cs" />
+     <Compile Include="Assets\Scripts\Boat\Boat_1.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_1.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_2.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_3.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_4.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_5.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletGroup_6.cs" />
+     <Compile Include="Assets\Scripts\Bullet\BulletMove.cs" />
+     <Compile Include="Assets\Scripts\Bullet\FlyPathMove.cs" />
+     <Compile Include="Assets\Scripts\Card\CardInfo.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_0.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_1.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_2.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_3.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_4.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_5.cs" />
+     <Compile Include="Assets\Scripts\Card\Card_6.cs" />
+     <Compile Include="Assets\Scripts\Card\CharacterInfo.cs" />
+     <Compile Include="Assets\Scripts\Card\SupportInfo.cs" />
+     <Compile Include="Assets\Scripts\Data\DataController.cs" />
+     <Compile Include="Assets\Scripts\Fly\Fly_0.cs" />
+     <Compile Include="Assets\Scripts\Language\LanguageInfo.cs" />
+     <Compile Include="Assets\Scripts\Language\LanguageManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\ADManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\ActivityManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\Controller.cs" />
+     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\LookAtCamera.cs" />
+     <Compile Include="Assets\Scripts\Manager\LookAtObject.cs" />
+     <Compile Include="Assets\Scripts\Manager\PaymentManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\PoolManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\PowerManager.cs" />
+     <Compile Include="Assets\Scripts\Manager\RandomMove.cs" />
+     <Compile Include="Assets\Scripts\Prefab\ShowParticle.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopInfo.cs" />
+     <Compile Include="Assets\Scripts\Shop\ShopUI.cs" />
+     <Compile Include="Assets\Scripts\Testing.cs" />
+     <Compile Include="Assets\Scripts\Tool\BGRound.cs" />
+     <Compile Include="Assets\Scripts\Tool\Common.cs" />
+     <Compile Include="Assets\Scripts\Tool\DestoryByTime.cs" />
+     <Compile Include="Assets\Scripts\Tool\EventPool.cs" />
+     <Compile Include="Assets\Scripts\Tool\LogManager.cs" />
+     <Compile Include="Assets\Scripts\Tool\LoopMove.cs" />
+     <Compile Include="Assets\Scripts\Tool\ShowFPS_OnGUI.cs" />
+     <Compile Include="Assets\Scripts\Tool\ShowNumImage.cs" />
+     <Compile Include="Assets\Scripts\Tool\Yielders.cs" />
+     <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
+     <Compile Include="Assets\Scripts\UI\GamePause.cs" />
+     <Compile Include="Assets\Scripts\UI\GameRunUI.cs" />
+     <Compile Include="Assets\Scripts\UI\HomeUI.cs" />
+     <Compile Include="Assets\Scripts\UI\LoadingScene.cs" />
+     <Compile Include="Assets\Scripts\UI\MainUI.cs" />
+     <Compile Include="Assets\Scripts\UI\PeopleInfo.cs" />
+     <Compile Include="Assets\Scripts\UI\Setting.cs" />
+     <Compile Include="Assets\Scripts\Version\CurrentBundleVersion.cs" />
+     <Compile Include="Assets\Scripts\uMeng\Analytics.cs" />
+     <Compile Include="Assets\Scripts\uMeng\GA.cs" />
+     <Compile Include="Assets\Scripts\uMeng\UmengCase.cs" />
+     <Compile Include="Assets\Scripts\uMeng\UmengManager.cs" />
+     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EditorLabel.cs" />
+     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\EnableCameraDepthInForward.cs" />
+     <Compile Include="Assets\ShaderForge\Example Assets\Scripts\SoftNormalsToVertexColor.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\AttackSpineboy.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\DataAssetsFromExportsExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\DraggableTransform.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\FootSoldierExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\BasicPlatformerController.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\ConstrainedCamera.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\Raptor.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineBeginnerTwo.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineBlinkPlayer.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyBeginnerInput.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyBeginnerModel.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyBeginnerView.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\SpineboyTargetController.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Getting Started Scripts\TransitionDictionaryExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Goblins.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\HandleEventWithAudioExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\HurtFlashEffect.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\MaterialPropertyBlockExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Mix and Match Character Customize\EquipAssetExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Mix and Match Character Customize\EquipButtonExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Mix and Match Character Customize\EquipSystemExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Mix and Match Character Customize\EquipsVisualsComponentExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\MixAndMatch.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\MixAndMatchGraphic.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\RaggedySpineboy.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\ReloadSceneOnKeyDown.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\BoneLocalOverride.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\CombinedSkin.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Legacy\AtlasRegionAttacher.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Legacy\CustomSkin.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Legacy\SpriteAttacher.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Sample VertexEffects\JitterEffectExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\Sample VertexEffects\TwoByTwoTransformEffectExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonAnimationMulti\SkeletonAnimationMulti.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SkeletonColorInitialize.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SlotTintBlackFollower.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Sample Components\SpineEventUnityHandler.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpawnFromSkeletonDataExample.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineGauge.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\Spineboy.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineboyBodyTilt.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineboyFacialExpression.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineboyFootplanter.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineboyFreeze.cs" />
+     <Compile Include="Assets\Spine Examples\Scripts\SpineboyPole.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Animation.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\AnimationState.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\AnimationStateData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Atlas.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\AtlasAttachmentLoader.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\Attachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\AttachmentLoader.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\AttachmentType.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\BoundingBoxAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\ClippingAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\MeshAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\PathAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\PointAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\RegionAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Attachments\VertexAttachment.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\BlendMode.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Bone.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\BoneData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Event.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\EventData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\ExposedList.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\IConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\IUpdatable.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\IkConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\IkConstraintData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Json.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\MathUtils.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\PathConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\PathConstraintData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Skeleton.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SkeletonBinary.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SkeletonBounds.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SkeletonClipping.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SkeletonData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SkeletonJson.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Skin.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Slot.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\SlotData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\TransformConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\TransformConstraintData.cs" />
+     <Compile Include="Assets\Spine\spine-csharp\Triangulator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Asset Types\AnimationReferenceAsset.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Asset Types\AtlasAsset.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Asset Types\EventDataReferenceAsset.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Asset Types\RegionlessAttachmentLoader.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Asset Types\SkeletonDataAsset.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Components\BoneFollower.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Components\PointFollower.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Components\SkeletonAnimation.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Components\SkeletonAnimator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Components\SkeletonRenderer.cs" />
+     <Compile Include="Assets\Spine\spine-unity\ISkeletonAnimation.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\DoubleBuffered.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\SpineMesh.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysSimpleMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysSubmeshSetMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ArraysSubmeshedMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\DoubleBufferedMesh.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ISimpleMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Mesh Generation\Unused\ISubmeshedMeshGenerator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\AttachmentTools\AttachmentTools.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\BoundingBoxFollower\BoundingBoxFollower.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\CustomMaterials\SkeletonRendererCustomMaterials.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\Ghost\SkeletonGhost.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\Ghost\SkeletonGhostRenderer.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\Ragdoll\SkeletonRagdoll.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\Ragdoll\SkeletonRagdoll2D.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\BoneFollowerGraphic.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\SkeletonGraphic.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonRenderSeparator\SkeletonPartsRenderer.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonRenderSeparator\SkeletonRenderSeparator.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityEyeConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityGroundConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SkeletonUtility Modules\SkeletonUtilityKinematicShadow.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\SlotBlendModes\SlotBlendModes.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\TK2D\SpriteCollectionAttachmentLoader.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\YieldInstructions\WaitForSpineAnimationComplete.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\YieldInstructions\WaitForSpineEvent.cs" />
+     <Compile Include="Assets\Spine\spine-unity\Modules\YieldInstructions\WaitForSpineTrackEntryEnd.cs" />
+     <Compile Include="Assets\Spine\spine-unity\SkeletonExtensions.cs" />
+     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtility.cs" />
+     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityBone.cs" />
+     <Compile Include="Assets\Spine\spine-unity\SkeletonUtility\SkeletonUtilityConstraint.cs" />
+     <Compile Include="Assets\Spine\spine-unity\SpineAttributes.cs" />
+     <None Include="Assets\Spine\spine-unity\Editor\Resources\SpineAssetDatabaseMarker.txt" />
+     <None Include="Assets\Ceto\Shaders\Read.compute" />
+     <None Include="Assets\Resource\Spine\Renwu1\renwu1.atlas.txt" />
+     <None Include="Assets\Ceto\Shaders\OceanBottom.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightPosition\SFN_LightPosition.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_EXP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Trunc\SFN_Trunc.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC1.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RemapRange\SFN_RemapRange.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Matrix4x4\SFN_Matrix4x4.shader" />
+     <None Include="Assets\Spine Examples\Spine\Eyes\eyes.atlas.txt" />
+     <None Include="Assets\Spine\spine-unity\Shaders\Utility\HiddenPass.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG2.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanShadowCasterBody.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp01\SFN_Clamp01.shader" />
+     <None Include="Assets\Resource\Spine\Renwu6\qishi.atlas.txt" />
+     <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Spine-Skeleton-Fill.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD_ANG.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Screen.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanMask.shader" />
+     <None Include="Assets\Resources\data\EndlessConfig.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpritePixelLighting.cginc" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteVertexLighting.cginc" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteShadows.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RemapRangeAdvanced\SFN_RemapRangeAdvanced.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_ColorBurn.shader" />
+     <None Include="Assets\Resource\Spine\Fly1\bianfu1.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ExtractChannel.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleMultiplicative.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_3.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Clamp\SFN_Clamp.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Negate\SFN_Negate.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fmod\SFN_Fmod.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tan\SFN_Tan.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Frac\SFN_Frac.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpriteShadows.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Panner\SFN_Panner_DIST.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpritePixelLighting.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteLighting.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Transpose\SFN_Transpose.shader" />
+     <None Include="Assets\Ceto\Shaders\InitJacobians.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_RgbToHsv\SFN_RgbToHsv.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC3.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_REF.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cos\SFN_Cos.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SceneDepth\SFN_SceneDepth.shader" />
+     <None Include="Assets\Spine Examples\Spine\Gauge\Gauge.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Ceil\SFN_Ceil.shader" />
+     <None Include="Assets\Resource\Spine\DiRen1\diren1.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_POS.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_AmbientLight\SFN_AmbientLight.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Log\SFN_Log_LOG10.shader" />
+     <None Include="Assets\Plugins\Newtonsoft.Json.10.0.3\lib\net20\Newtonsoft.Json.xml" />
+     <None Include="Assets\Resources\data\ChargeConfig_China.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC2.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VertexColor\SFN_VertexColor.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Lighten.shader" />
+     <None Include="Assets\Resource\Spine\Renwu2\renwu2.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Matrix4x4Property\SFN_Matrix4x4Property.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\Shaders\Spine-SkeletonGraphic-TintBlack.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetCustomLighting.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_DEP_REF.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Set\SFN_Set.shader" />
+     <None Include="Assets\Ceto\Shaders\SlopeCopy.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightColor\SFN_LightColor.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cross\SFN_Cross.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Subtract\SFN_Subtract.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAlphaBlended.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_DEP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcCos\SFN_ArcCos.shader" />
+     <None Include="Assets\Spine Examples\Spine\FootSoldier\FS_White.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_NEG.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_4.shader" />
+     <None Include="Assets\Ceto\Shaders\CopyDepth.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\ShaderShared.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_SPD.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Cubemap\SFN_Cubemap.shader" />
+     <None Include="Assets\Resource\Spine\Renwu4\fengxing.atlas.txt" />
+     <None Include="Assets\Spine\spine-unity\Modules\CustomMaterials\SkeletonRendererCustomMaterials.txt" />
+     <None Include="Assets\ShaderForge\Readme.txt" />
+     <None Include="Assets\Ceto\Shaders\BlurEffectConeTaps.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FragmentPosition\SFN_FragmentPosition.shader" />
+     <None Include="Assets\Spine Examples\Spine\Dragon\license.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Abs\SFN_Abs.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_ColorDodge.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_3.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Overlay.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Straight Alpha\Spine-Straight-Skeleton-Tint.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_NOTO.shader" />
+     <None Include="Assets\Resources\data\LoadingTipCfg.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_TexCoord\SFN_TexCoord.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ProjectionParameters\SFN_ProjectionParameters.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSprite.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_ZTOW.shader" />
+     <None Include="Assets\Spine Examples\Spine\Hero\license.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_SPD_ANG.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\ReadPackedData.shader" />
+     <None Include="Assets\Spine Examples\Spine\Goblins\goblins.atlas.txt" />
+     <None Include="Assets\Ceto\Shaders\OceanTopSide_Opaque.shader" />
+     <None Include="Assets\EasyTouchBundle\EasyTouchControls\ReleaseNotes.txt" />
+     <None Include="Assets\Spine Examples\Spine\Strechyman\stretchyman-diffuse-pma.atlas.txt" />
+     <None Include="Assets\Resource\Spine\Chuan2\chuan2.atlas.txt" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\Vegetation.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_DEP_REF.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_If\SFN_If.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexAnimation.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FaceSign\SFN_FaceSign.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanDisplacement.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VectorRejection\SFN_VectorRejection.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetParticleAdditive.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDXY\SFN_DDXY.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_PixelSize\SFN_PixelSize.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanBRDF.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_5.shader" />
+     <None Include="Assets\Spine Examples\Spine\Raptor\raptor.atlas.txt" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpriteLighting.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewPosition\SFN_ViewPosition.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Exp\SFN_Exp.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\SlotBlendModes\Spine-Skeleton-PMA-Screen.shader" />
+     <None Include="Assets\Spine Examples\Spine\spineboy-unity\spineboy.atlas.txt" />
+     <None Include="Assets\Resource\Spine\Renwu5\hudie.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Floor\SFN_Floor.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Power\SFN_Power.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Multiply\SFN_Multiply_2.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Distance\SFN_Distance.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetUnlit.shader" />
+     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Documentation\Version 2.0.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ChannelBlend\SFN_ChannelBlend.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_UV_MIP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Divide\SFN_Divide.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_InverseLerp\SFN_InverseLerp.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanTopSide_Transparent.shader" />
+     <None Include="Assets\Resources\data\config\cls_LanguageConfig.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteUnlit.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan\SFN_ArcTan.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_UV.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpriteUnlit.cginc" />
+     <None Include="Assets\Ceto\Shaders\InitDisplacement.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\Refraction.shader" />
+     <None Include="Assets\Spine Examples\Spine\FootSoldier\license.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_NormalVector\SFN_NormalVector.shader" />
+     <None Include="Assets\Resource\Spine\Chuan1\chuan1.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_REQONLY.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SceneColor\SFN_SceneColor.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ConstantLerp\SFN_ConstantLerp.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightVector\SFN_LightVector.shader" />
+     <None Include="Assets\Spine\spine-unity\version.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_2.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Bitangent\SFN_Bitangent.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpritesPixelLit.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_HsvToRgb\SFN_HsvToRgb.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_OneMinus\SFN_OneMinus.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Transform\SFN_Transform.shader" />
+     <None Include="Assets\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ScreenPos\SFN_ScreenPos.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Panner\SFN_Panner_REQONLY.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanUnderSide_Opaque.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Lerp\SFN_Lerp.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\Parallax.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV_ANG.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_REQONLY.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanShaderHeader.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Length\SFN_Length.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Posterize\SFN_Posterize.shader" />
+     <None Include="Assets\Spine Examples\Spine\Raggedy Spineboy\Raggedy Spineboy.atlas.txt" />
+     <None Include="Assets\EasyTouchBundle\Readme.txt" />
+     <None Include="Assets\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Spine-Skeleton-Tint.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Darken.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_NRM_EXP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_REF.shader" />
+     <None Include="Assets\Ceto\Shaders\Fourier.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_HardMix.shader" />
+     <None Include="Assets\Resources\data\EndlessLevelConfig.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpritesUnlit.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_ZTO.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_REQONLY.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_HalfVector\SFN_HalfVector.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_4.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPBR.shader" />
+     <None Include="Assets\Ceto\Shaders\WaveOverlay.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\LightWrapping.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetPostEffect.shader" />
+     <None Include="Assets\Ceto\Version.txt" />
+     <None Include="Assets\Resource\Spine\Renwu3\renwu3.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Normalize\SFN_Normalize.shader" />
+     <None Include="Assets\Ceto\Shaders\FoamCopy.shader" />
+     <None Include="Assets\Spine\spine-unity\Shaders\Utility\Hidden-Spine-Bones.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcTan2\SFN_ArcTan2_NPTP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Append\SFN_Append.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpritesVertexLit.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_SPD.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewReflectionVector\SFN_ViewReflectionVector.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectPosition\SFN_ObjectPosition.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Hue\SFN_Hue.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Ghost\Shaders\Spine-Special-Skeleton-Ghost.shader" />
+     <None Include="Assets\Resources\data\LanguageConfig.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Reciprocal\SFN_Reciprocal.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sign\SFN_Sign.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ScreenParameters\SFN_ScreenParameters.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_STD.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_NoInputs.shader" />
+     <None Include="Assets\Resource\Spine\Fly2\bianfu2.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDY\SFN_DDY.shader" />
+     <None Include="Assets\CSharp vNext Support\AsyncTools\Plugins\AsyncBridge.Net35.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_4.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Round\SFN_Round.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpriteVertexLighting.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ArcSin\SFN_ArcSin.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Divide.shader" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectScale\SFN_ObjectScale_Default.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Multiply.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_VectorProjection\SFN_VectorProjection.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ViewVector\SFN_ViewVector.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearDodge.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Smoothstep\SFN_Smoothstep.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Reflect\SFN_Reflect.shader" />
+     <None Include="Assets\DLLs\protobuf-net.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Time\SFN_Time.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_2.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\VertexColorRounding.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_PinLight.shader" />
+     <None Include="Assets\Spine Examples\Spine\Dragon\dragon.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_SwitchProperty\SFN_SwitchProperty.shader" />
+     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_FogColor\SFN_FogColor.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\TessellationDisplacement.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Desaturate\SFN_Desaturate_DES.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_ABS.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Parallax\SFN_Parallax_UV_DEP.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Noise\SFN_Noise.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetBasic.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DDX\SFN_DDX.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CameraDepthNormalsTexture.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanDepth.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2d\SFN_Tex2d_MIP.shader" />
+     <None Include="Assets\BuildReport\VERSION.txt" />
+     <None Include="Assets\Spine\spine-unity\Shaders\Spine-Skeleton-TintBlack.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\ShaderShared.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sqrt\SFN_Sqrt.shader" />
+     <None Include="Assets\Resources\data\ChargeConfig_English.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\SkeletonGraphic\Shaders\Spine-SkeletonGraphic.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Depth\SFN_Depth.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_2.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanSurfaceShaderBody.cginc" />
+     <None Include="Assets\Spine\spine-unity\Shaders\Spine-Skeleton.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_PIV.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\Tiles.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_UVTile\SFN_UVTile.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Get\SFN_Get.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Relay\SFN_Relay.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Difference.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Code\SFN_Code.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\Common\FillColor.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ObjectScale\SFN_ObjectScale_Reciprocal.shader" />
+     <None Include="Assets\Resources\data\EffectConfig.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CameraNormalsTexture.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanUnderWater.cginc" />
+     <None Include="Assets\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
+     <None Include="Assets\Scripts\Tool\SpriteFilled.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanUnderSide_Transparent.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_5.shader" />
+     <None Include="Assets\Ceto\Shaders\InitSlope.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tex2dAsset\SFN_Tex2dAsset.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Sin\SFN_Sin.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Add\SFN_Add_3.shader" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\PixelRotator.shader" />
+     <None Include="Assets\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
+     <None Include="Assets\BuildReport\README.txt" />
+     <None Include="Assets\ShaderForge\Example Assets\Shaders\CustomLighting.shader" />
+     <None Include="Assets\Spine Examples\Spine\spineboy-pro\spineboy-pro.atlas.txt" />
+     <None Include="Assets\Ceto\Shaders\UnderWaterPostEffect.shader" />
+     <None Include="Assets\Spine Examples\Spine\Spineunitygirl\Doi.atlas.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Fresnel\SFN_Fresnel_NRM.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_4.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_3.shader" />
+     <None Include="Assets\Ceto\Manual.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_NormalBlend\SFN_NormalBlend.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_VividLight.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ComponentMask\SFN_ComponentMask_CC4.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CameraDepthTexture.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\SlotBlendModes\Spine-Skeleton-PMA-Multiply.shader" />
+     <None Include="Assets\Spine Examples\Spine\Hero\hero-pro.atlas.txt" />
+     <None Include="Assets\EasyTouchBundle\EasyTouch\How to migrate from EasyTouch 4.X.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Dot\SFN_Dot_NRM.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Rotator\SFN_Rotator_ANG.shader" />
+     <None Include="Assets\Resources\data\items.xml" />
+     <None Include="Assets\CSharp vNext Support\AsyncTools\Plugins\System.Threading.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_ConstantClamp\SFN_ConstantClamp.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\ShaderMaths.cginc" />
+     <None Include="Assets\Resources\data\LevelConfig.xml" />
+     <None Include="Assets\Spine\spine-unity\Modules\SkeletonRenderSeparator\SkeletonRenderSeparator.txt" />
+     <None Include="Assets\Resources\data\EndlessHardConfig.xml" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Subtract.shader" />
+     <None Include="Assets\Ceto\Shaders\DisplacementCopy.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_LightAttenuation\SFN_LightAttenuation.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_MultiplyMatrix\SFN_MultiplyMatrix.shader" />
+     <None Include="Assets\FORGE3D\Sci-Fi Effects\Shaders\Additive.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\SpriteDepthNormalsTexture.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_Exclusion.shader" />
+     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearBurn.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_DepthBlend\SFN_DepthBlend.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Step\SFN_Step.shader" />
+     <None Include="Assets\Spine\spine-unity\Shaders\Spine-SkeletonLit.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Tangent\SFN_Tangent.shader" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Sprite\CGIncludes\SpriteSpecular.cginc" />
+     <None Include="Assets\Spine\spine-unity\Modules\Shaders\Straight Alpha\Spine-Straight-Skeleton-Fill.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Max\SFN_Max_5.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Min\SFN_Min_5.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_LinearLight.shader" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Blend\SFN_Blend_HardLight.shader" />
+     <None Include="Assets\Ceto\Shaders\OceanMasking.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\GPU Rendering\SFN_Desaturate\SFN_Desaturate_REQONLY.shader" />
+     <None Include="Assets\Spine Examples\Spine\FootSoldier\Equipment\Equipment.atlas.txt" />
+     <None Include="Assets\Ceto\Shaders\OceanMaskBody.cginc" />
+     <None Include="Assets\ShaderForge\Editor\InternalResources\Shader Presets\PresetSky.shader" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.TestRunner">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>D:/Unity5.6.1/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="AsyncBridge.Net35">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/CSharp vNext Support/AsyncTools/Plugins/AsyncBridge.Net35.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Threading">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/CSharp vNext Support/AsyncTools/Plugins/System.Threading.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+ </Reference>
+ <Reference Include="FileManager">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/FileManager.dll</HintPath>
+ </Reference>
+ <Reference Include="GameEvent">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/GameEvent.dll</HintPath>
+ </Reference>
+ <Reference Include="ItemManager">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/ItemManager.dll</HintPath>
+ </Reference>
+ <Reference Include="protobuf-net">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/protobuf-net.dll</HintPath>
+ </Reference>
+ <Reference Include="Serialize">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/Serialize.dll</HintPath>
+ </Reference>
+ <Reference Include="UIManager">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/DLLs/UIManager.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>E:/GitProject/Unity5.6.1p4/SeaFight/Assets/Plugins/Newtonsoft.Json.10.0.3/lib/net20/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
