@@ -10,12 +10,13 @@ public class Test2 : MonoBehaviour
     public GameObject moveObj;
     public GameObject orgObj;
     public GameObject targetObj;
+    public GameObject middleObj;
 
 
 
     private Vector3 orgPos;
     private Vector3 targetPos;
-    public float height;
+    private Vector3 middlePos;
     public float xSpeed;
 
     public bool isInit;
@@ -28,20 +29,18 @@ public class Test2 : MonoBehaviour
     {
         orgPos = orgObj.transform.position;
         targetPos = targetObj.transform.position;
+        middlePos = middleObj.transform.position;
 
-        Vector2 middle = new Vector2((orgPos.x + targetPos.x) / 2, (orgObj.transform.position.y + targetObj.transform.position.y) / 2 + height);
-
-        a = (targetPos.y - middle.y) * orgPos.x - (targetPos.x - middle.x) * orgPos.y + targetPos.x * middle.y - middle.x * targetPos.y;
+        a = (targetPos.y -middlePos.y) * orgPos.x - (targetPos.x -middlePos.x) * orgPos.y + targetPos.x *middlePos.y -middlePos.x * targetPos.y;
         a = -a;
-        a /= (targetPos.x - middle.x) * (orgPos.x - targetPos.x) * (orgPos.x - middle.x);
+        a /= (targetPos.x -middlePos.x) * (orgPos.x - targetPos.x) * (orgPos.x -middlePos.x);
 
-        b = (targetPos.y - middle.y) * Mathf.Pow(orgPos.x, 2) + Mathf.Pow(targetPos.x, 2) * middle.y - Mathf.Pow(middle.x, 2) * targetPos.y - (Mathf.Pow(targetPos.x, 2) - Mathf.Pow(middle.x, 2)) * orgPos.y;
-        b /= (targetPos.x - middle.x) * (orgPos.x - targetPos.x) * (orgPos.x - middle.x);
+        b = (targetPos.y -middlePos.y) * Mathf.Pow(orgPos.x, 2) + Mathf.Pow(targetPos.x, 2) *middlePos.y - Mathf.Pow(middleObj.transform.position.x, 2) * targetPos.y - (Mathf.Pow(targetPos.x, 2) - Mathf.Pow(middleObj.transform.position.x, 2)) * orgPos.y;
+        b /= (targetPos.x -middlePos.x) * (orgPos.x - targetPos.x) * (orgPos.x -middlePos.x);
+        
+        c = middlePos.y - a * Mathf.Pow(middlePos.x, 2) - b * middlePos.x;
 
-        c = (targetPos.x * middle.y - middle.x * targetPos.y) * Mathf.Pow(orgPos.x, 2) - (Mathf.Pow(targetPos.x, 2) - Mathf.Pow(middle.x, 2)) * orgPos.x + (Mathf.Pow(targetPos.x, 2) * middle.x - targetPos.x * Mathf.Pow(middle.x, 2)) * orgPos.y;
-        c /= (targetPos.x - middle.x) * (orgPos.x - targetPos.x) * (orgPos.x - middle.x);
-        //c = height;
-
+        
         moveObj.transform.position = orgPos;
         isInit = true;
     }
