@@ -25,11 +25,16 @@ public class BulletGroup_6 : MonoBehaviour
     public float fightRadius;
 
     public Vector3[] movePositions;
+    public float moveSpeed;
 
 
     #region 需要设置的值--不然就会使用默认的
+    public Transform parent;
+    public CardInfo target;
     public CardInfo cardInfo;
     public int showNum;
+    public GameObject prefab;
+
 
     #endregion
 
@@ -118,14 +123,14 @@ public class BulletGroup_6 : MonoBehaviour
         Vector3 length = movePositions[1] - movePositions[0];
         transform.DOMove(length, 3).SetEase(Ease.Linear).SetRelative().OnComplete(SetMove4);
 
-        //投掷鱼雷
-        StartCoroutine(YuLeiSpan());
     }
 
     public void SetMove4()
     {
         Vector3 length = movePositions[2] - movePositions[1];
-        transform.DOMove(length, 2).SetEase(Ease.Linear).SetRelative();
+        transform.DOMove(length, 1).SetEase(Ease.Linear).SetRelative();
+        //投掷鱼雷
+        StartCoroutine(YuLeiSpan());
     }
 
     public float yuStartDelay;
@@ -142,32 +147,23 @@ public class BulletGroup_6 : MonoBehaviour
             float z1 = fightRadius * Mathf.Sin(angle * Mathf.PI / 180);
             Vector3 endPoint = fightPoint + new Vector3(x1, 0, z1) * Random.Range(0f, 1f);
 
-            GameObject obj = Common.Generate(DataController.prefabPath_Bullet + 5, transform);
-            BulletMove bmove = obj.GetComponent<BulletMove>();
-            Collider myColl = obj.GetComponent<Collider>();
+            float tempAngle = -90;
             //
+            GameObject obj = Common.Generate(prefab, transform);
             obj.transform.SetParent(transform.parent);
-            obj.transform.position = endPoint + new Vector3(0, bmove.deadLength - 2, 0);
-            obj.transform.localEulerAngles = new Vector3(0, 0, -90);
-            //
-            myColl.enabled = false;
+            obj.transform.position = endPoint;
+
+            BulletMove bMove = obj.GetComponent<BulletMove>();
+            bMove.SetEulerAngle(new Vector3(0, 0, tempAngle));
+            Tag myTag = Tag.Bullet;
+            float atk = 0;
             if (cardInfo != null)
             {
-                bmove.Init(cardInfo.myTag, cardInfo.Atk, Vector3.down * 10);
+                myTag = cardInfo.myTag;
+                atk = cardInfo.Atk;
             }
-            else
-            {
-                bmove.Init(Tag.Bullet, 0, Vector3.down * 10);
-            }
-
-            obj.transform.DOMove(endPoint, 1.5f).SetEase(Ease.Linear).OnComplete(() => SetMove5(myColl, obj));
+            bMove.Init(myTag, atk, Vector3.down * moveSpeed);
         }
-    }
-
-    private void SetMove5(Collider coll, GameObject obj)
-    {
-        coll.enabled = true;
-        //obj.transform.DOMove(new Vector3(0, -1, 0), 0.1f).SetEase(Ease.Linear).SetRelative().OnComplete(() => SetMove6(obj));
     }
 
 }

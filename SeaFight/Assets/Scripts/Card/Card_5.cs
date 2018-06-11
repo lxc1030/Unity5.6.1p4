@@ -9,5 +9,7 @@ public class Card_5 : SupportInfo
     {
         base.DoTimeLogic();
         Debug.LogError("迫击炮特效");
+
+        //GameManager.instance.DoCameraAnimation();
     }
 }

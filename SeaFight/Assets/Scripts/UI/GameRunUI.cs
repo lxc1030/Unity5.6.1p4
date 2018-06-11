@@ -69,16 +69,28 @@ public class GameRunUI : MonoBehaviour
 
     public void OnMove(Vector2 move)
     {
-        GameManager.instance.CharacterMove(move);
+        GameManager.instance.OnMove(move);
     }
     public void OnMoveEnd()
     {
-
+        GameManager.instance.OnMoveEnd();
     }
 
     #endregion
 
 
+    public void OnClickAuto()
+    {
+        DataController.instance.isAutoPlaying = !DataController.instance.isAutoPlaying;
+        if (DataController.instance.isAutoPlaying)
+        {
+            uiControl.Show(false);
+        }
+        else
+        {
+            uiControl.Show(true);
+        }
+    }
 
     public void OnClickSkill1()
     {

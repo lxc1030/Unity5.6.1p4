@@ -23,19 +23,38 @@ public class CardInfo : MonoBehaviour
         gameObject.tag = myTag.ToString();
         HpMax = Hp;
         GameObject obj = null;
-        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.PeopleInfo, Camera.main.transform);
-        obj.SetActive(false);
+        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.PeopleInfo, Camera.main.transform, null, false);
         pInfo = obj.GetComponent<PeopleInfo>();
-        pInfo.Init(transPeopleInfo, myName, GameManager.BackHpSpName(isEnemy));
+        pInfo.Init(GameManager.instance.gameCamera, transPeopleInfo, myName, GameManager.BackHpSpName(isEnemy));
+        obj.SetActive(true);
+    }
+
+    public bool isLive
+    {
+        get
+        {
+            return Hp > 0;
+        }
     }
 
     public void UpdateHp(float demage)
     {
-        Hp -= demage;
+        if (Hp + demage < 0)
+        {
+            Hp = 0;
+        }
+        else if (Hp + demage > HpMax)
+        {
+            Hp = HpMax;
+        }
+        else
+        {
+            Hp += demage;
+        }
         float precent = Hp / HpMax;
         pInfo.SetHp(precent);
     }
-    public static void SetBullet(Tag ownTag, int bulletType, int index, float atk, Vector3 pos, float angle)
+    public static void SetBullet(Tag ownTag, int bulletType, int index, float atk, Vector3 pos, float angle, Vector3 moveDir)
     {
         GameObject obj = null;
         obj = Common.Generate(DataController.prefabPath_Bullet + bulletType, GameManager.instance.transBullet);
@@ -44,10 +63,7 @@ public class CardInfo : MonoBehaviour
         //
         obj.transform.position = pos;
         obj.transform.localScale = Vector3.one;
-        //
-        float x1 = 1 * Mathf.Cos(angle * Mathf.PI / 180);
-        float y1 = 1 * Mathf.Sin(angle * Mathf.PI / 180);
-        Vector3 moveDir = new Vector3(x1, y1, 0).normalized * 30;
+
         bullet.Init(ownTag, atk, moveDir);
     }
 }

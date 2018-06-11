@@ -2,48 +2,52 @@
 
 public class Test : MonoBehaviour
 {
-    public float g = 9.8f;
+    public const float g = 9.8f;
 
-    public Vector3 orgPos;
-    public Vector3 target;
+    public GameObject target;
     public float speed = 10;
     private float verticalSpeed;
+    private Vector3 moveDirection;
 
-    public bool isMove;
+    private float angleSpeed;
+    private float angle;
 
-    private void Awake()
-    {
-        isMove = false;
-    }
+    public bool isShoot;
+
     [ContextMenu("发射")]
-    public void Init()
+    void Init()
     {
-        time = 0;
-        transform.position = orgPos;
-        //
-        float tmepDistance = Vector3.Distance(orgPos, target);
+        isShoot = true;
+        float tmepDistance = Vector3.Distance(transform.position, target.transform.position);
         float tempTime = tmepDistance / speed;
         float riseTime, downTime;
         riseTime = downTime = tempTime / 2;
         verticalSpeed = g * riseTime;
-        transform.LookAt(target);
+        transform.LookAt(target.transform.position);
 
-        isMove = true;
+        float tempTan = verticalSpeed / speed;
+        double hu = Mathf.Atan(tempTan);
+        angle = (float)(180 / Mathf.PI * hu);
+        transform.eulerAngles = new Vector3(-angle, transform.eulerAngles.y, transform.eulerAngles.z);
+        angleSpeed = angle / riseTime;
+
+        moveDirection = target.transform.position - transform.position;
     }
     private float time;
     void Update()
     {
-        if (isMove)
-        {
-            if (transform.position.y < target.y)
-            {
-                //finish
-                return;
-            }
-            time += Time.deltaTime;
-            float test = verticalSpeed - g * time;
-            transform.Translate(transform.forward * speed * Time.deltaTime, Space.World);
-            transform.Translate(transform.up * test * Time.deltaTime, Space.World);
-        }
+        if (!isShoot)
+            return;
+        //if (transform.position.y < target.transform.position.y)
+        //{
+        //    //finish  
+        //    return;
+        //}
+        time += Time.deltaTime;
+        float test = verticalSpeed - g * time;
+        transform.Translate(moveDirection.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.up * test * Time.deltaTime, Space.World);
+        float testAngle = -angle + angleSpeed * time;
+        transform.eulerAngles = new Vector3(testAngle, transform.eulerAngles.y, transform.eulerAngles.z);
     }
 }

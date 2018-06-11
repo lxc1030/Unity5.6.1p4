@@ -2,27 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PositionExchange : MonoBehaviour
+public class CameraExchange : MonoBehaviour
 {
-    public PositionExchangeType myType;
-
-
-
+    public CameraExchangeType myType;
 
     public Transform UI;
     public Transform Head;
-    //默认血条缩与摄像机的距离
-    private float Fomat;
     public Camera camera2D;
     public Camera camera3D;
-
     
-
-    private void Awake()
-    {
-        //计算一下默认血条的距离，也可以写个常量，就是标记一下
-        Fomat = Vector3.Distance(Head.position, camera3D.transform.position);
-    }
 
     public void Init()
     {
@@ -33,15 +21,13 @@ public class PositionExchange : MonoBehaviour
     {
         switch (myType)
         {
-            case PositionExchangeType.World_UI:
+            case CameraExchangeType.World_UI:
                 if (Head != null)
                 {
-                    //这里可以判断一下 如果位置没有变化就不要在赋值了
-                    float newFomat = Fomat / Vector3.Distance(Head.position, camera3D.transform.position);
                     SetPosition();
                 }
                 break;
-            case PositionExchangeType.UI_World:
+            case CameraExchangeType.UI_World:
                 if (UI != null)
                 {
                     Vector2 uiPos = RectTransformUtility.WorldToScreenPoint(camera2D, UI.transform.position);
@@ -91,7 +77,7 @@ public class PositionExchange : MonoBehaviour
 
 }
 
-public enum PositionExchangeType
+public enum CameraExchangeType
 {
     World_UI,
     UI_World,

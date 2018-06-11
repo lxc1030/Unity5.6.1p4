@@ -10,7 +10,7 @@ public class Common : MonoBehaviour
         return (GameObject)Resources.Load(path, typeof(GameObject));
     }
 
-    public static GameObject Generate(string path, Transform parent)
+    public static GameObject Generate(string path, Transform parent, bool isOrgPosition = true, bool isOrgScale = true, bool isOrgRotation = true)
     {
         Object obj = Resources.Load(path);
         if (obj == null)
@@ -25,14 +25,23 @@ public class Common : MonoBehaviour
         return Generate(obj as GameObject, parent);
     }
 
-    public static GameObject Generate(GameObject prefab, Transform parent)
+    public static GameObject Generate(GameObject prefab, Transform parent, bool isOrgPosition = true, bool isOrgScale = true, bool isOrgRotation = true)
     {
         GameObject obj = null;
         obj = Instantiate(prefab) as GameObject;
         obj.transform.SetParent(parent);
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localScale = Vector3.one;
-        obj.transform.localRotation = Quaternion.identity;
+        if (isOrgPosition)
+        {
+            obj.transform.localPosition = Vector3.zero;
+        }
+        if (isOrgScale)
+        {
+            obj.transform.localScale = Vector3.one;
+        }
+        if (isOrgRotation)
+        {
+            obj.transform.localRotation = Quaternion.identity;
+        }
         return obj;
     }
 

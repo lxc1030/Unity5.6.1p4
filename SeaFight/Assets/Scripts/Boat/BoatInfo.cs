@@ -12,7 +12,7 @@ public class BoatInfo : MonoBehaviour
     /// </summary>
     public BoatType myType;
 
-    public Vector3 A_Target;
+    public CardInfo A_Target;
 
     public Transform AnimationObj;
     private SkeletonAnimation skeletonAnimation;   //gameobject的component。
@@ -46,9 +46,8 @@ public class BoatInfo : MonoBehaviour
         cardInfo = GetComponent<CardInfo>();
     }
 
-    public virtual void Init(Vector3 pos, float sp)
+    public virtual void Init(float sp)
     {
-        transform.localPosition = pos;
         moveSpeed = sp;
         if (!isEvent)
         {
@@ -89,9 +88,9 @@ public class BoatInfo : MonoBehaviour
 
     }
 
-    public virtual void Shoot(GameObject target)
+    public virtual void Shoot(CardInfo target)
     {
-        A_Target = target.transform.position;
+        A_Target = target;
 
         switch (target.tag)
         {
@@ -105,11 +104,11 @@ public class BoatInfo : MonoBehaviour
 
     public void BeShoot(float demage)
     {
-        if (cardInfo.Hp > 0)
+        if (cardInfo.isLive)
         {
-            cardInfo.UpdateHp(demage);
+            cardInfo.UpdateHp(-demage);
             render.material.DOFloat(1f, "_FillPhase", 0.1f).OnComplete(HitAnimationComplete);
-            if (cardInfo.Hp <= 0)
+            if (!cardInfo.isLive)
             {
                 PoolDestroy();
             }
@@ -125,7 +124,7 @@ public class BoatInfo : MonoBehaviour
     {
         GameManager.instance.SetParticle(PreLoadType.BoatDeadParticle, transform.position, true);
         PoolManager.instance.SetPoolObjByType(PreLoadType.PeopleInfo, cardInfo.pInfo.gameObject);
-        GameManager.instance.DeleteBoat(gameObject);
+        GameManager.instance.DeleteBoat(cardInfo);
     }
 
 
@@ -147,8 +146,5 @@ public class BoatInfo : MonoBehaviour
         //    skeletonUtility.skeletonRenderer.meshRenderer.sharedMaterial.renderQueue = 3500 - (int)(Math.Round(transform.localPosition.y, 2) * 100);
         //}
     }
-    public void LateUpdate()
-    {
-        GameManager.SetZPosition(transform);
-    }
+   
 }

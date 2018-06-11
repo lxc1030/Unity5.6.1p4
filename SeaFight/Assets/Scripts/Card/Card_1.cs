@@ -23,18 +23,26 @@ public class Card_1 : CharacterInfo
                 GameObject obj = Common.Generate(DataController.prefabPath_Bullet + nameof(BulletGroup_3), GameManager.instance.transBullet);
                 obj.transform.position = new Vector3(shootPoint.position.x, 0, shootPoint.position.z);
                 BulletGroup_3 info = obj.GetComponent<BulletGroup_3>();
+                info.parent = shootPoint;
+                info.target = A_Target;
                 info.prefab = Common.PrefabLoad(DataController.prefabPath_Bullet + myIndex);//子弹类型
+                info.prefab2 = Common.PrefabLoad(DataController.prefabPath_Bullet + 5);//子弹类型
                 info.startAngle = angle;
                 info.cardInfo = cardInfo;
                 info.Init();
             }
             else
             {
+                if (A_Target == null || !A_Target.isLive)
+                {
+                    return;
+                }
                 bulletGroupCount++;
                 //
                 GameManager.instance.SetParticle(PreLoadType.ShootParticle, shootPoint.position, true);
                 Tag tag = isEnemy ? Tag.Enemy : Tag.Player;
-                CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle);
+                Vector3 moDir = (A_Target.transform.position - shootPoint.position).normalized * 20;
+                CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle, moDir);
             }
         }
     }

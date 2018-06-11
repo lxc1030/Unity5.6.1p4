@@ -315,7 +315,7 @@
     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCJoystick.cs" />
     <Compile Include="Assets\EasyTouchBundle\EasyTouchControls\Plugins\ETCTouchPad.cs" />
     <Compile Include="Assets\Scenes\Test.cs" />
-    <Compile Include="Assets\Scenes\TestMoveToSame.cs" />
+    <Compile Include="Assets\Scenes\Test2.cs" />
     <Compile Include="Assets\Scripts\Boat\BoatInfo.cs" />
     <Compile Include="Assets\Scripts\Boat\Boat_0.cs" />
     <Compile Include="Assets\Scripts\Boat\Boat_1.cs" />
@@ -327,7 +327,6 @@
     <Compile Include="Assets\Scripts\Bullet\BulletGroup_6.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletMove.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletTrriger.cs" />
-    <Compile Include="Assets\Scripts\Bullet\FlyPathMove.cs" />
     <Compile Include="Assets\Scripts\Card\CardInfo.cs" />
     <Compile Include="Assets\Scripts\Card\Card_0.cs" />
     <Compile Include="Assets\Scripts\Card\Card_1.cs" />
@@ -346,7 +345,6 @@
     <Compile Include="Assets\Scripts\Manager\ActivityManager.cs" />
     <Compile Include="Assets\Scripts\Manager\AudioManager.cs" />
     <Compile Include="Assets\Scripts\Manager\CameraManager.cs" />
-    <Compile Include="Assets\Scripts\Manager\Controller.cs" />
     <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Manager\LookAtCamera.cs" />
     <Compile Include="Assets\Scripts\Manager\LookAtObject.cs" />

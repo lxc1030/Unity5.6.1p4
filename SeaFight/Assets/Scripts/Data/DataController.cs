@@ -67,18 +67,13 @@ public class DataController : MonoBehaviour
     public const string iconPathSkill = "Image/";
 
     //prefab
-    public const string prefPath_Control = "prefab/Controller";
     public const string prefabPath_Bullet = "bullet/";
     public const string prefabPath_Character = "prefab/Card_";
-    public const string prefabPath_CardHurtParticle = "prefab/CardHurtParticle";
-    public const string prefabPath_BoatHurtParticle = "prefab/BoatHurtParticle";
     public const string prefabPath_ShootParticle = "prefab/ShootParticle";
     public const string prefabPath_Boat = "prefab/Boat_";
     public const string prefabPath_PeopleInfo = "prefab/PeopleInfo";
     public const string prefabPath_BoatDeadParticle = "prefab/BoatDeadParticle";
-    public const string prefabPath_SelfHurtParticle = "prefab/SelfHurtParticle";
-    public const string prefabPath_BulletDesParticle = "prefab/BulletDesParticle";
-    public const string pPath_bulletGroup = "prefab/";
+    public const string prefabPath_ParticleCommon = "prefab/BulletParticleCommon";
 
 
 
@@ -89,21 +84,25 @@ public class DataController : MonoBehaviour
     public Vector3 playerPos;//主角生成位置
     public Vector3 bossPos;//怪物生成位置
     public float supportPosX;
-    public float[] supportPosY;//后排3个支援单位
-
-    public float moveSpeed;//主角遥杆移动速度
-    public float shootRange;//主角普通距离
-
-
+    public float[] supportPosZ;//后排3个支援单位
+    
+    public bool isAutoPlaying;//主角是否自动战斗
     public float limetControlTop;//主角上方限制位置
     public float limetControlBottom;//主角下方限制位置
-    public float limetCameraYLength;
+    public float limetControlLeft;
+    public float limetControlRight;
+
+    public int cameraFollowIndex;//相机跟随的人物ID
+
+    public Vector3 cameraPosition;
+    public float limetCameraFollowX;
+    public float limetCameraFollowZ;
     public float limetCameraTop;
     public float limetCameraBottom;
 
+    public float[] boatPositions;
 
     public float ZPow = 1;
-
 
     /// <summary>
     /// 结算加金币

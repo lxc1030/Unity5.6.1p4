@@ -6,9 +6,9 @@ public class Boat_1 : BoatInfo {
 
     private bool isHit;
 
-    public override void Init(Vector3 pos, float sp)
+    public override void Init(float sp)
     {
-        base.Init(pos, sp);
+        base.Init(sp);
         isHit = false;
 
     }

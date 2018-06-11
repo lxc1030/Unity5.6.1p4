@@ -95,8 +95,8 @@ public class SupportInfo : MonoBehaviour
 
     public virtual void BeShoot(float demage)
     {
-        cardInfo.UpdateHp(demage);
-        if (cardInfo.Hp <= 0)
+        cardInfo.UpdateHp(-demage);
+        if (!cardInfo.isLive)
         {
             Debug.LogError(myType + "->" + myIndex + " 死亡");
             //render.material.DOFloat(1f, "_FillPhase", 0.1f).OnComplete(HitAnimationComplete);

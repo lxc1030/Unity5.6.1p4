@@ -38,6 +38,8 @@ public class Boat_0 : BoatInfo
                 GameObject obj = Common.Generate(DataController.prefabPath_Bullet + nameof(BulletGroup_1), GameManager.instance.transBullet);
                 obj.transform.position = new Vector3(shootPoint.position.x, 0, shootPoint.position.z);
                 BulletGroup_1 info = obj.GetComponent<BulletGroup_1>();
+                info.parent = shootPoint;
+                info.target = A_Target;
                 info.prefab = Common.PrefabLoad(DataController.prefabPath_Bullet + 4);//子弹类型
                 //info.startAngle = angle;
                 info.startAngle = 180;

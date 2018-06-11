@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
+    public string Des;
     public BulletTrriger all;
     public Vector3 MoveDirection;
     public bool isInit;
@@ -44,28 +45,21 @@ public class BulletMove : MonoBehaviour
 
     private void PoolDestroy()
     {
-        switch (targetTag)
+        GameObject obj = null;
+        string name = "";
+        switch (myIndex)
         {
-            case Tag.Enemy:
-                GameManager.instance.SetParticle(PreLoadType.CardHurtParticle, transform.position, true);
-                break;
-            case Tag.Boat:
-                GameManager.instance.SetParticle(PreLoadType.BoatHurtParticle, transform.position, true);
-                break;
-            case Tag.Player:
-                GameManager.instance.SetParticle(PreLoadType.SelfHurtParticle, transform.position, true);
+            case 5:
+            case 6:
+                name = myIndex + "";
+                obj = Common.Generate(DataController.prefabPath_Bullet + "Particle_" + name, GameManager.instance.transShoot);
                 break;
             default:
-                Debug.LogError("射中->" + targetTag);
-                //GameManager.instance.SetParticle(PreLoadType.CardHurtParticle, transform.localPosition);
+                name = "Common";
+                obj = PoolManager.instance.GetPoolObjByType(PreLoadType.ParticleCommon, GameManager.instance.transShoot);
                 break;
         }
-        Destroy(gameObject);
-    }
-
-    public void SelfDestroy()
-    {
-        GameManager.instance.SetParticle(PreLoadType.BulletDesParticle, transform.position, true);
+        obj.transform.position = transform.position;
         Destroy(gameObject);
     }
 
@@ -167,13 +161,18 @@ public class BulletMove : MonoBehaviour
         if (destroyLength > deadLength)
         {
             isHit = true;
-            SelfDestroy();
+            PoolDestroy();
         }
         if (!isHit)
         {
             if (MoveDirection != Vector3.zero)
             {
                 transform.Translate(MoveDirection * Time.deltaTime, Space.World);
+            }
+            if (transform.position.y < -1)
+            {
+                isHit = true;
+                PoolDestroy();
             }
         }
     }

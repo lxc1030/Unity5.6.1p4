@@ -9,17 +9,15 @@ public class PoolManager : MonoBehaviour
     public static PoolManager instance;
 
     public Dictionary<PreLoadType, PoolInitInfo> poolInfo = new Dictionary<PreLoadType, PoolInitInfo>() {
-        { PreLoadType.Control, new PoolInitInfo() { num = 2, path = DataController.prefPath_Control }},
-        //{ PreLoadType.Bullet, new PoolInitInfo() { num = 10, path = DataController.prefabPath_Bullet }},
-        //{ PreLoadType.Character, new PoolInitInfo() { num = 10, path = DataController.prefabPath_Character }},
-        { PreLoadType.CardHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_CardHurtParticle }},
-        { PreLoadType.BoatHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BoatHurtParticle }},
+        { PreLoadType.Controller,new PoolInitInfo() { num = 0, path = null }},
+        //{ PreLoadType.CardHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_CardHurtParticle }},
+        //{ PreLoadType.BoatHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BoatHurtParticle }},
         { PreLoadType.ShootParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_ShootParticle }},
         //{ PreLoadType.Boat,new PoolInitInfo() { num = 10, path = DataController.prefabPath_Boat }},
         { PreLoadType.PeopleInfo,new PoolInitInfo() { num = 10, path = DataController.prefabPath_PeopleInfo }},
         { PreLoadType.BoatDeadParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BoatDeadParticle }},
-        { PreLoadType.SelfHurtParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_SelfHurtParticle }},
-        { PreLoadType.BulletDesParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BulletDesParticle }},
+        { PreLoadType.ParticleCommon,new PoolInitInfo() { num = 10, path = DataController.prefabPath_ParticleCommon }},
+        //{ PreLoadType.BulletDesParticle,new PoolInitInfo() { num = 10, path = DataController.prefabPath_BulletDesParticle }},
         
         //add
     };
@@ -83,7 +81,7 @@ public class PoolManager : MonoBehaviour
 
 
 
-    public GameObject GetPoolObjByType(PreLoadType type, Transform parent, UnityEngine.Vector3? scale = null)
+    public GameObject GetPoolObjByType(PreLoadType type, Transform parent, UnityEngine.Vector3? scale = null, bool isActive = true)
     {
         GameObject obj = null;
         string path = "";
@@ -94,14 +92,17 @@ public class PoolManager : MonoBehaviour
                 obj = poolObjs[type][0];
                 poolObjs[type].RemoveAt(0);
             }
-            //
-            obj.transform.SetParent(parent);
         }
         else
         {
             path = poolInfo[type].path;
             obj = Common.Generate(path, parent);
         }
+        //
+        obj.SetActive(isActive);
+        //
+        obj.transform.SetParent(parent);
+        //
         if (scale != null)
         {
             obj.transform.localScale = (Vector3)scale;
@@ -110,7 +111,6 @@ public class PoolManager : MonoBehaviour
         {
             obj.transform.localScale = Vector3.one;
         }
-        obj.SetActive(true);
         return obj;
     }
 
@@ -141,16 +141,10 @@ public class PoolInitInfo
     public string path;
 }
 public enum PreLoadType
-{
-    Control,
-    //Bullet,
-    //Character,
-    CardHurtParticle,
-    BoatHurtParticle,
+{   
+    Controller,
     ShootParticle,
-    //Boat,
     PeopleInfo,
     BoatDeadParticle,
-    SelfHurtParticle,
-    BulletDesParticle,
+    ParticleCommon,
 }

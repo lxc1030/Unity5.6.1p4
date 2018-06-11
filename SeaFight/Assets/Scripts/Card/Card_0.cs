@@ -13,7 +13,6 @@ public class Card_0 : CharacterInfo
         base.state_Event(trackEntry, e);
         //
         float angle = GameManager.BackAngleOfTarget(A_Target, shootPoint.position);
-
         //
         if (e.Data.Name == "e_atk")
         {
@@ -24,6 +23,8 @@ public class Card_0 : CharacterInfo
                 GameObject obj = Common.Generate(DataController.prefabPath_Bullet + nameof(BulletGroup_2), GameManager.instance.transBullet);
                 obj.transform.position = new Vector3(shootPoint.position.x, 0, shootPoint.position.z);
                 BulletGroup_2 info = obj.GetComponent<BulletGroup_2>();
+                info.parent = shootPoint;
+                info.target = A_Target;
                 info.prefab = Common.PrefabLoad(DataController.prefabPath_Bullet + 3);//子弹类型
                 info.startAngle = angle;
                 info.cardInfo = cardInfo;
@@ -31,11 +32,16 @@ public class Card_0 : CharacterInfo
             }
             else
             {
+                if (A_Target == null || !A_Target.isLive)
+                {
+                    return;
+                }
                 bulletGroupCount++;
                 //
                 GameManager.instance.SetParticle(PreLoadType.ShootParticle, shootPoint.position, true);
                 Tag tag = isEnemy ? Tag.Enemy : Tag.Player;
-                CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle);
+                Vector3 moDir = (A_Target.transform.position - shootPoint.position).normalized * 20;
+                CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle, moDir);
             }
         }
     }

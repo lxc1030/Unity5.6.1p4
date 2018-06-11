@@ -1,5 +1,5 @@
 ********************************************************************************
-*                      Tuesday, June 05, 2018 11:11:55 AM                      *
+*                       Monday, June 11, 2018 4:24:21 PM                       *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
@@ -12,116 +12,13 @@ Compiler: Microsoft C# 6.0
 - Compilation -----------------------------------------------
 
 Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-b05ceaef7aa8e7d4190701faf2418dae 
-Exit code: 1
-Elapsed time: 1.32 sec
-
-- Compiler output (0 lines):
-
-- Compiler errors (31 lines):
-0: Assets\EasyTouchBundle\EasyTouch\Examples\4.X\LoadExamples.cs(9,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-1: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(13,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(21,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-3: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(29,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(37,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(45,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-6: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(53,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-7: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(61,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-8: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(69,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-9: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(77,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-10: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(85,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-11: Assets\Scripts\Boat\Boat_0.cs(41,22): error CS1061: 'BulletGroup_1' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_1' could be found (are you missing a using directive or an assembly reference?)
-12: Assets\Scripts\Card\Card_0.cs(27,22): error CS1061: 'BulletGroup_2' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_2' could be found (are you missing a using directive or an assembly reference?)
-13: Assets\Scripts\Card\Card_1.cs(26,22): error CS1061: 'BulletGroup_3' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_3' could be found (are you missing a using directive or an assembly reference?)
-14: Assets\Scripts\Card\Card_2.cs(26,22): error CS1061: 'BulletGroup_4' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_4' could be found (are you missing a using directive or an assembly reference?)
-15: Assets\Scripts\Card\Card_3.cs(30,22): error CS1061: 'BulletGroup_5' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_5' could be found (are you missing a using directive or an assembly reference?)
-16: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(270,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-17: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(288,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-18: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,14): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-19: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,29): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-20: Assets\Scripts\Manager\GameManager.cs(337,9): warning CS0162: Unreachable code detected
-21: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(269,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-22: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(293,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-23: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,25): warning CS0649: Field 'SpineboyFootplanter.nearFoot' is never assigned to, and will always have its default value null
-24: Assets\Spine\spine-csharp\Slot.cs(39,17): warning CS0649: Field 'Slot.hasSecondColor' is never assigned to, and will always have its default value false
-25: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,35): warning CS0649: Field 'SpineboyFootplanter.farFoot' is never assigned to, and will always have its default value null
-26: Assets\Scripts\Tool\LoopMove.cs(12,13): warning CS0649: Field 'LoopMove.tw' is never assigned to, and will always have its default value null
-27: Assets\Scripts\uMeng\Analytics.cs(25,15): warning CS0414: The field 'Analytics.hasInit' is assigned but its value is never used
-28: Assets\Scripts\Data\DataController.cs(15,27): warning CS0414: The field 'DataController.XMLName' is assigned but its value is never used
-29: Assets\Scripts\Manager\GameManager.cs(38,19): warning CS0414: The field 'GameManager.cameraDistance' is assigned but its value is never used
-30: Assets\Scripts\Manager\GameManager.cs(13,27): warning CS0414: The field 'GameManager.XMLName' is assigned but its value is never used
-********************************************************************************
-*                      Tuesday, June 05, 2018 11:12:33 AM                      *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 2.0.3.30
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: E:\GitProject\Unity5.6.1p4\SeaFight
-Target profile directory: D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity
-Unity 'Data' or 'Frameworks' directory: D:/Unity5.6.1/Unity/Editor/Data
-Compiler: Microsoft C# 6.0
-
-- Compilation -----------------------------------------------
-
-Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-cd654329079252144875044316ba3379 
-Exit code: 1
-Elapsed time: 1.38 sec
-
-- Compiler output (0 lines):
-
-- Compiler errors (30 lines):
-0: Assets\EasyTouchBundle\EasyTouch\Examples\4.X\LoadExamples.cs(9,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-1: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(13,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-2: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(21,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-3: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(29,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-4: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(37,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-5: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(45,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-6: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(53,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-7: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(61,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-8: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(69,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-9: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(77,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-10: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(85,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-11: Assets\Scripts\Card\Card_0.cs(27,22): error CS1061: 'BulletGroup_2' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_2' could be found (are you missing a using directive or an assembly reference?)
-12: Assets\Scripts\Card\Card_1.cs(26,22): error CS1061: 'BulletGroup_3' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_3' could be found (are you missing a using directive or an assembly reference?)
-13: Assets\Scripts\Card\Card_2.cs(26,22): error CS1061: 'BulletGroup_4' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_4' could be found (are you missing a using directive or an assembly reference?)
-14: Assets\Scripts\Card\Card_3.cs(30,22): error CS1061: 'BulletGroup_5' does not contain a definition for 'parent' and no extension method 'parent' accepting a first argument of type 'BulletGroup_5' could be found (are you missing a using directive or an assembly reference?)
-15: Assets\Scripts\Manager\GameManager.cs(337,9): warning CS0162: Unreachable code detected
-16: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(270,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-17: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(288,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-18: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,14): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-19: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,29): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-20: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(269,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-21: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(293,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-22: Assets\Scripts\Tool\LoopMove.cs(12,13): warning CS0649: Field 'LoopMove.tw' is never assigned to, and will always have its default value null
-23: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,25): warning CS0649: Field 'SpineboyFootplanter.nearFoot' is never assigned to, and will always have its default value null
-24: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,35): warning CS0649: Field 'SpineboyFootplanter.farFoot' is never assigned to, and will always have its default value null
-25: Assets\Spine\spine-csharp\Slot.cs(39,17): warning CS0649: Field 'Slot.hasSecondColor' is never assigned to, and will always have its default value false
-26: Assets\Scripts\uMeng\Analytics.cs(25,15): warning CS0414: The field 'Analytics.hasInit' is assigned but its value is never used
-27: Assets\Scripts\Data\DataController.cs(15,27): warning CS0414: The field 'DataController.XMLName' is assigned but its value is never used
-28: Assets\Scripts\Manager\GameManager.cs(38,19): warning CS0414: The field 'GameManager.cameraDistance' is assigned but its value is never used
-29: Assets\Scripts\Manager\GameManager.cs(13,27): warning CS0414: The field 'GameManager.XMLName' is assigned but its value is never used
-********************************************************************************
-*                      Tuesday, June 05, 2018 11:13:00 AM                      *
-********************************************************************************
-CSharpCompilerWrapper.exe version: 2.0.3.30
-Platform: Windows
-Target assembly: Assembly-CSharp.dll
-Project directory: E:\GitProject\Unity5.6.1p4\SeaFight
-Target profile directory: D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity
-Unity 'Data' or 'Frameworks' directory: D:/Unity5.6.1/Unity/Editor/Data
-Compiler: Microsoft C# 6.0
-
-- Compilation -----------------------------------------------
-
-Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-aed603b5746cbe44ba3b4928c90d0412 
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.dll" @Temp/UnityTempFile-6d1c478662748874ab6d42f0235f4250 
 Exit code: 0
-Elapsed time: 1.87 sec
+Elapsed time: 1.65 sec
 
 - Compiler output (0 lines):
 
-- Compiler errors (26 lines):
+- Compiler errors (25 lines):
 0: Assets\EasyTouchBundle\EasyTouch\Examples\4.X\LoadExamples.cs(9,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
 1: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(13,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
 2: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(21,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
@@ -133,32 +30,31 @@ Elapsed time: 1.87 sec
 8: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(69,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
 9: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(77,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
 10: Assets\EasyTouchBundle\EasyTouchControls\Examples\Version 1.X\LoadLevelScript.cs(85,3): warning CS0618: 'Application.LoadLevel(string)' is obsolete: 'Use SceneManager.LoadScene'
-11: Assets\Scripts\Manager\GameManager.cs(337,9): warning CS0162: Unreachable code detected
-12: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(270,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-13: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(288,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-14: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,14): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-15: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,29): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
-16: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(269,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-17: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(293,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
-18: Assets\Scripts\Tool\LoopMove.cs(12,13): warning CS0649: Field 'LoopMove.tw' is never assigned to, and will always have its default value null
-19: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,25): warning CS0649: Field 'SpineboyFootplanter.nearFoot' is never assigned to, and will always have its default value null
+11: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(270,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
+12: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(288,100): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
+13: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,14): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
+14: Assets\Ceto\Scripts\Reflections\PlanarReflection.cs(346,29): warning CS0618: 'Camera.hdr' is obsolete: 'use Camera.allowHDR instead.'
+15: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(269,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
+16: Assets\Ceto\Scripts\Common\Unity\RTUtility.cs(293,18): warning CS0618: 'SystemInfo.supportsRenderTextures' is obsolete: 'supportsRenderTextures always returns true, no need to call it'
+17: Assets\Spine\spine-csharp\Slot.cs(39,17): warning CS0649: Field 'Slot.hasSecondColor' is never assigned to, and will always have its default value false
+18: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,25): warning CS0649: Field 'SpineboyFootplanter.nearFoot' is never assigned to, and will always have its default value null
+19: Assets\Scripts\Tool\LoopMove.cs(12,13): warning CS0649: Field 'LoopMove.tw' is never assigned to, and will always have its default value null
 20: Assets\Spine Examples\Scripts\SpineboyFootplanter.cs(30,35): warning CS0649: Field 'SpineboyFootplanter.farFoot' is never assigned to, and will always have its default value null
-21: Assets\Spine\spine-csharp\Slot.cs(39,17): warning CS0649: Field 'Slot.hasSecondColor' is never assigned to, and will always have its default value false
+21: Assets\Scripts\Card\Card_3.cs(11,19): warning CS0414: The field 'Card_3.spanRadius' is assigned but its value is never used
 22: Assets\Scripts\uMeng\Analytics.cs(25,15): warning CS0414: The field 'Analytics.hasInit' is assigned but its value is never used
-23: Assets\Scripts\Manager\GameManager.cs(38,19): warning CS0414: The field 'GameManager.cameraDistance' is assigned but its value is never used
-24: Assets\Scripts\Manager\GameManager.cs(13,27): warning CS0414: The field 'GameManager.XMLName' is assigned but its value is never used
-25: Assets\Scripts\Data\DataController.cs(15,27): warning CS0414: The field 'DataController.XMLName' is assigned but its value is never used
+23: Assets\Scripts\Manager\GameManager.cs(13,27): warning CS0414: The field 'GameManager.XMLName' is assigned but its value is never used
+24: Assets\Scripts\Data\DataController.cs(15,27): warning CS0414: The field 'DataController.XMLName' is assigned but its value is never used
 
 - PDB to MDB conversion --------------------------------------
 
 Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\pdb2mdb.exe
 Arguments: Temp\Assembly-CSharp.dll
 Exit code: 0
-Elapsed time: 0.18 sec
+Elapsed time: 0.14 sec
 
 - pdb2mdb.exe output (0 lines):
 ********************************************************************************
-*                      Tuesday, June 05, 2018 11:13:03 AM                      *
+*                       Monday, June 11, 2018 4:24:23 PM                       *
 ********************************************************************************
 CSharpCompilerWrapper.exe version: 2.0.3.30
 Platform: Windows
@@ -171,9 +67,9 @@ Compiler: Microsoft C# 6.0
 - Compilation -----------------------------------------------
 
 Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\csc.exe
-Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-7cdd094799e10e941aab646ee889784e 
+Arguments: -nostdlib+ -noconfig -nologo -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\mscorlib.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Core.dll" -r:"D:\Unity5.6.1\Unity\Editor\Data\MonoBleedingEdge\lib\mono\2.0-api\System.Xml.dll" @Temp/UnityTempFile-67ec82bef495f3a44af528b86532de0f 
 Exit code: 0
-Elapsed time: 1.73 sec
+Elapsed time: 1.08 sec
 
 - Compiler output (0 lines):
 
@@ -197,6 +93,6 @@ Elapsed time: 1.73 sec
 Process: E:\GitProject\Unity5.6.1p4\SeaFight\CSharp60Support\Roslyn\pdb2mdb.exe
 Arguments: Temp\Assembly-CSharp-Editor.dll
 Exit code: 0
-Elapsed time: 0.12 sec
+Elapsed time: 0.09 sec
 
 - pdb2mdb.exe output (0 lines):

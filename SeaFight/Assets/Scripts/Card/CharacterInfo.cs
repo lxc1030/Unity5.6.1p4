@@ -23,7 +23,7 @@ public class CharacterInfo : MonoBehaviour
     /// <summary>
     /// 平A目标坐标
     /// </summary>
-    public Vector3 A_Target;
+    public CardInfo A_Target;
     /// <summary>
     /// 平A子弹个数
     /// </summary>
@@ -90,14 +90,14 @@ public class CharacterInfo : MonoBehaviour
     }
 
 
-    public virtual void Shoot(GameObject target)
+    public virtual void Shoot(CardInfo target)
     {
         if (!isCanShoot)
             return;
         isCanShoot = false;
         AccumilatedTime = AccumilatedTime - shootCD;
         //
-        A_Target = target.transform.position;
+        A_Target = target;
         switch (target.tag)
         {
             case nameof(Tag.Enemy):
@@ -129,7 +129,7 @@ public class CharacterInfo : MonoBehaviour
 
     public virtual void BeShoot(float demage)
     {
-        cardInfo.UpdateHp(demage);
+        cardInfo.UpdateHp(-demage);
         if (cardInfo.Hp <= 0)
         {
             Debug.LogError("编号->" + myIndex + " 死亡");
@@ -176,9 +176,5 @@ public class CharacterInfo : MonoBehaviour
                 GameManager.instance.ShootEnemy(this);
             }
         }
-    }
-    public void LateUpdate()
-    {
-        GameManager.SetZPosition(transform);
     }
 }

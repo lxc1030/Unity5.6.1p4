@@ -8,15 +8,12 @@ public class Card_3 : CharacterInfo
     private int bulletGroupCount;
     public int bulletGroupCountMax;
 
-    private float addAngle = 5;
+    private float spanRadius = 5;
     public override void state_Event(TrackEntry trackEntry, Spine.Event e)
     {
         base.state_Event(trackEntry, e);
         //
         float angle = GameManager.BackAngleOfTarget(A_Target, shootPoint.position);
-        //
-        float addAll = addAngle * (bulletNum - 1);
-        float startAngel = angle - (addAll / 2);
         //
         if (e.Data.Name == "e_atk")
         {
@@ -27,6 +24,8 @@ public class Card_3 : CharacterInfo
                 GameObject obj = Common.Generate(DataController.prefabPath_Bullet + nameof(BulletGroup_5), GameManager.instance.transBullet);
                 obj.transform.position = new Vector3(shootPoint.position.x, 0, shootPoint.position.z);
                 BulletGroup_5 info = obj.GetComponent<BulletGroup_5>();
+                info.parent = shootPoint;
+                info.target = A_Target;
                 info.prefab = Common.PrefabLoad(DataController.prefabPath_Bullet + myIndex);//子弹类型
                 info.startAngle = angle;
                 info.cardInfo = cardInfo;
@@ -34,14 +33,16 @@ public class Card_3 : CharacterInfo
             }
             else
             {
+                if (A_Target == null || !A_Target.isLive)
+                {
+                    return;
+                }
                 bulletGroupCount++;
                 //
                 GameManager.instance.SetParticle(PreLoadType.ShootParticle, shootPoint.position, true);
-                for (int i = 0; i < bulletNum; i++)
-                {
-                    Tag tag = isEnemy ? Tag.Enemy : Tag.Player;
-                    CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle);
-                }
+                Tag tag = isEnemy ? Tag.Enemy : Tag.Player;
+                Vector3 moDir = (A_Target.transform.position - shootPoint.position).normalized * 20;
+                CardInfo.SetBullet(tag, myIndex, myIndex, cardInfo.Atk, shootPoint.position, angle, moDir);
             }
         }
 

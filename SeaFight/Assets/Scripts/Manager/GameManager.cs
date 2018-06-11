@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public Transform transShoot;
 
 
-    public Controller myControl;
+    //public Controller myControl;
 
     public List<int> cardIndexs;
     public List<int> supportIndexs;
@@ -31,20 +31,11 @@ public class GameManager : MonoBehaviour
 
     public List<SupportInfo> showSupport;
 
-    public List<GameObject> showEnemy;
+    public List<CardInfo> showEnemy;
 
     #region 相机相关参数
     public Camera gameCamera;//游戏相机
-    private float cameraDistance = -720f;//相机距离
-    /// <summary>
-    /// X是否跟随，Y是否跟随，X跟随限制值，Y跟随限制值
-    /// </summary>
-    public Rect followLimet /*= new Rect(0, 1, 0, 10)*/;
-
-    public float followFixTime = 0.3f;
-
-
-    public float cameraAngle;
+    public Camera seaCamera;
 
     #endregion
 
@@ -72,7 +63,6 @@ public class GameManager : MonoBehaviour
     public void Init()
     {
         ChangeState(GameState.游戏未开始);
-        cameraAngle = gameCamera.transform.localEulerAngles.x;
     }
     public void ChangeState(GameState state)
     {
@@ -81,6 +71,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.游戏未开始:
                 gameCamera.gameObject.SetActive(false);
+                seaCamera.gameObject.SetActive(false);
                 break;
             case GameState.游戏场景初始化:
                 SetGameInit();
@@ -101,17 +92,35 @@ public class GameManager : MonoBehaviour
         GenerateSupport();
         TestGenerateEnemy();
 
+        //我方卡牌移动到限定区域
+        DoMyCardAnimation();
+
         ChangeState(GameState.开始战斗);
     }
 
     private void GenerateMyControl()
     {
-        GameObject obj = null;
-        obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transMy);
-        obj.transform.position = DataController.instance.playerPos - new Vector3(3, 0, 0);
-        myControl = obj.GetComponent<Controller>();
-        myControl.Init(cardIndexs);
-        myControl.transform.DOMove(DataController.instance.playerPos, 0.5f);
+        for (int i = 0; i < cardIndexs.Count; i++)
+        {
+            GameObject obj = null;
+            obj = Common.Generate(DataController.prefabPath_Character + cardIndexs[i], transMy);
+            obj.transform.position = DataController.instance.playerPos - new Vector3(3, 0, 0);
+            //
+            CharacterInfo info = obj.GetComponent<CharacterInfo>();
+            info.Init(cardIndexs[i], false);
+            //
+            CardInfo cardInfo = obj.GetComponent<CardInfo>();
+            cardInfo.myTag = Tag.Player;
+            cardInfo.isEnemy = false;
+            cardInfo.Hp = GameManager.BackCardHp(info.myIndex);
+            cardInfo.Atk = GameManager.BackCardAtk(info.myIndex);
+            cardInfo.myName = "我方->" + (int)info.myIndex;
+            cardInfo.SetInit();
+            //
+            //info.AnimationObj.transform.localEulerAngles = new Vector3(0, 0, 0);
+            myCards.Add(info);
+        }
+        DataController.instance.cameraFollowIndex = 0;
     }
     private void GenerateSupport()
     {
@@ -121,7 +130,7 @@ public class GameManager : MonoBehaviour
             obj = Common.Generate(DataController.prefabPath_Character + supportIndexs[i], transSupport);
             Vector3 pos = new Vector3(DataController.instance.supportPosX, 0, 0);
             obj.transform.position = pos;
-            obj.transform.DOMove(new Vector2(DataController.instance.supportPosX, DataController.instance.supportPosY[i]), 0.5f);
+            obj.transform.DOMove(new Vector3(DataController.instance.supportPosX, 0, DataController.instance.supportPosZ[i]), 0.5f);
             //
             SupportInfo info = obj.GetComponent<SupportInfo>();
             info.Init(supportIndexs[i], true);
@@ -139,10 +148,6 @@ public class GameManager : MonoBehaviour
     }
     private void TestGenerateEnemy()
     {
-        //Controller con = null;
-        //obj = PoolManager.instance.GetPoolObjByType(PreLoadType.Control, transEnemy);
-        //obj.tag = nameof(Tag.Enemy);
-        //con = obj.GetComponent<Controller>();
         for (int i = 0; i < enemyIndexs.Count; i++)
         {
             GameObject obj = null;
@@ -162,11 +167,11 @@ public class GameManager : MonoBehaviour
             cardInfo.SetInit();
             //转向面向主角
             info.AnimationObj.localScale = new Vector3(-1, 1, 1);
-            showEnemy.Add(obj);
+            showEnemy.Add(cardInfo);
             //
             RandomMove erMove = obj.AddComponent<RandomMove>();
-            float radius = 1.5f;
-            erMove.center = new Vector3(DataController.instance.bossPos.x, 0, myControl.transform.position.z) + new Vector3(radius, 0);
+            float radius = 2f;
+            erMove.center = new Vector3(DataController.instance.bossPos.x, 0, DataController.instance.playerPos.z) - new Vector3(radius, 0);
             erMove.radius = radius;
             erMove.timeRandom = new Vector2(2, 5);
             erMove.Init();
@@ -186,13 +191,18 @@ public class GameManager : MonoBehaviour
             typeIndex = (int)BoatType.SuicideAttack;
         }
 
+        //
+        int index = UnityEngine.Random.Range(0, DataController.instance.boatPositions.Length);
+        Vector3 pos = new Vector3(7, 0, DataController.instance.boatPositions[index]);
+
+        float speed = 0;
+        //
         GameObject obj = null;
         obj = Common.Generate(DataController.prefabPath_Boat + typeIndex, transEnemy);
+        obj.transform.localPosition = pos;
+        //
         obj.tag = nameof(Tag.Boat);
         BoatInfo info = obj.GetComponent<BoatInfo>();
-        //
-        Vector3 pos = new Vector3(7, 0, UnityEngine.Random.Range(DataController.instance.limetControlTop, DataController.instance.limetControlBottom));
-        float speed = 0;
         //
         CardInfo cardInfo = info.cardInfo;
         cardInfo.myTag = Tag.Boat;
@@ -211,14 +221,27 @@ public class GameManager : MonoBehaviour
                 speed = 6f;
                 break;
         }
-        info.Init(pos, speed);
+        info.Init(speed);
         //
-        showEnemy.Add(obj);
+        showEnemy.Add(cardInfo);
+    }
+
+    private void DoMyCardAnimation()
+    {
+        for (int i = 0; i < myCards.Count; i++)
+        {
+            myCards[i].transform.DOMove(DataController.instance.playerPos + new Vector3(0, 0, myCardEndLimetLength) * i, 0.5f);
+        }
     }
 
 
-    public static float BackAngleOfTarget(Vector3 targetPos, Vector3 shootPoint)
+    #region 静态方法
+
+    public static float BackAngleOfTarget(CardInfo target, Vector3 shootPoint)
     {
+        if (target == null)
+            return 0;
+        Vector3 targetPos = target.transform.position;
         float angle = Mathf.Atan2(targetPos.z - shootPoint.z, targetPos.x - shootPoint.x);
         angle = 180 / Mathf.PI * angle;
         return angle;
@@ -331,19 +354,16 @@ public class GameManager : MonoBehaviour
         }
         return name;
     }
-    public static void SetZPosition(Transform trans)
-    {
-        return;
-        float endZ = trans.position.y * DataController.instance.ZPow / (DataController.instance.limetControlTop - DataController.instance.limetControlBottom);
-        endZ -= 0.6f;
-        trans.position = new Vector3(trans.position.x, trans.position.y, endZ);
-    }
 
     public static void SetRenderQueueByType(Renderer render, float y)
     {
         int queue = 0;
         render.sortingOrder = queue - (int)(Math.Round(y, 2) * 100);
     }
+
+
+    #endregion
+
 
 
     private void SetGaming()
@@ -361,25 +381,153 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CharacterMove(Vector2 move)
+
+
+    #region 我方移动
+    public List<CharacterInfo> myCards;
+    public float myCardMoveSpeed;
+    public float myCardLimetLength;
+    public float myCardSpeedSpan;
+    private Vector3 myCardMoveDir;
+
+    public float myCardEndLimetLength;
+    public float myCardEndTime;
+    private int myCardLastAngle;
+
+    //public void CharacterMove(Vector2 move)
+    //{
+    //    float time = Time.deltaTime;
+    //    myControl.SetMove(new Vector3(move.x, 0, move.y) * time);
+    //}
+
+
+    /// <summary>
+    /// 获取2个点在Z轴形成的角度
+    /// </summary>
+    /// <param name="leader"></param>
+    /// <param name="follow"></param>
+    /// <returns></returns>
+    float GetAngle(Vector3 leader, Vector3 follow)
     {
-        float time = Time.deltaTime;
-        myControl.SetMove(new Vector3(move.x, 0, move.y) * time);
+        float angleOfLine = Mathf.Atan2((leader.z - follow.z), (leader.x - follow.x)) * 180 / Mathf.PI;
+        return angleOfLine;
+    }
+
+    Vector3 GetMoveDirection(Vector3 direction, float angle)
+    {
+        float length = direction.magnitude;
+        float x = length * Mathf.Cos(angle * Mathf.PI / 180);
+        float z = length * Mathf.Sin(angle * Mathf.PI / 180);
+        Vector3 result = new Vector3(x, 0, z);
+        return result;
+    }
+
+
+    public void OnMove(Vector2 move)
+    {
+        myCardMoveDir = new Vector3(move.x, 0, move.y);
+        for (int i = 0; i < myCards.Count; i++)
+        {
+            myCards[i].DOKill();
+            Vector3 moveDir = myCardMoveDir;
+            if (i >= 1)
+            {
+                //
+                float distance = Vector3.Distance(myCards[i - 1].transform.position, myCards[i].transform.position);
+                if (distance < myCardLimetLength)
+                {
+                    moveDir = moveDir * (1 - (i * myCardSpeedSpan));
+                }
+                else
+                {
+                    moveDir = GetMoveDirection(myCardMoveDir, GetAngle(myCards[i - 1].transform.position, myCards[i].transform.position));
+                }
+            }
+            Vector3 add = moveDir * myCardMoveSpeed * Time.deltaTime;
+            GameManager.instance.LimetControl(myCards[i].transform.position, ref add);
+            //myCards[i].transform.position += (Vector3)add;
+            myCards[i].transform.DOMove(myCards[i].transform.position + add, Time.deltaTime).SetEase(Ease.Linear);
+        }
+    }
+
+
+    public void OnMoveEnd()
+    {
+        float tempAngle = GetAngle(Vector3.zero, myCardMoveDir);
+        //int curAngle = Mathf.CeilToInt((tempAngle - 22.5f) / 45) * 45;
+        //if (lastAngle == curAngle)
+        //{
+        //    return;
+        //}
+        //lastAngle = curAngle;
+        //
+        float x1 = myCardEndLimetLength * Mathf.Cos(tempAngle * Mathf.PI / 180);
+        float z1 = myCardEndLimetLength * Mathf.Sin(tempAngle * Mathf.PI / 180);
+
+        for (int i = 1; i < myCards.Count; i++)
+        {
+            myCards[i].DOKill();
+
+            Vector3 endPos = myCards[0].transform.position + new Vector3(x1, 0, z1) * i;
+            Vector3 fixDir = myCards[i].transform.position - endPos;
+            float time = myCardEndTime * fixDir.magnitude / myCardEndLimetLength;
+            time /= i;
+
+            Vector3 add = fixDir;
+            GameManager.instance.LimetControl(ref endPos);
+            myCards[i].transform.DOMove(endPos, time).SetEase(Ease.Linear);
+        }
     }
 
 
 
+    #endregion
+
+
+
     #region 射击判断
+    private float autoPlayCurTime;
+    private float autoPlayMarkTime;
+    public Vector2 autoPlayTimeRandom;
+    private Vector2 autoDirection;
+
+    public float autoSpeed;
+    public void CheckPlayAuto()
+    {
+        if (DataController.instance.isAutoPlaying)
+        {
+            Vector2 fixDirection = Vector2.zero;
+            autoPlayCurTime += Time.deltaTime;
+            if (autoPlayCurTime > autoPlayMarkTime)
+            {
+                autoPlayMarkTime = UnityEngine.Random.Range(autoPlayTimeRandom.x, autoPlayTimeRandom.y);
+                autoPlayCurTime = 0;
+                float radius = 1;
+                float tempAngle = UnityEngine.Random.Range(0, 360);
+                float x1 = radius * Mathf.Cos(tempAngle * Mathf.PI / 180);
+                float z1 = radius * Mathf.Sin(tempAngle * Mathf.PI / 180);
+                autoDirection = new Vector2(x1, z1) * autoSpeed;
+            }
+            //靠近限制边界直接重新随机
+            
+            
+            GameManager.instance.OnMove(autoDirection);
+        }
+    }
+
 
     public void ShootEnemy(CharacterInfo card)
     {
-        bool isHave = false; ;
+        bool isHave = false;
         int index = -1;
-        float markDis = DataController.instance.shootRange;
+        float markDis = card.shootRange;
         for (int i = 0; i < showEnemy.Count; i++)
         {
+            if (!showEnemy[i].isLive)
+            {
+                continue;
+            }
             float distance = Vector2.Distance(card.transform.position, showEnemy[i].transform.position);
-
             if (distance <= markDis)
             {
                 isHave = true;
@@ -393,14 +541,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void ShootController<T>(T t, Vector3 checkPos, float shootRange)
     {
         bool isHave = false; ;
         int index = -1;
         List<GameObject> objs = new List<GameObject>();
-        for (int i = 0; i < myControl.allModel.Count; i++)
+        for (int i = 0; i < myCards.Count; i++)
         {
-            objs.Add(myControl.allModel[i].gameObject);
+            objs.Add(myCards[i].gameObject);
         }
 
         CharacterInfo cInfo = t as CharacterInfo;
@@ -422,19 +571,19 @@ public class GameManager : MonoBehaviour
         {
             if (cInfo != null)
             {
-                cInfo.Shoot(myControl.allModel[index].gameObject);
+                cInfo.Shoot(myCards[index].cardInfo);
             }
             if (bInfo != null)
             {
-                bInfo.Shoot(myControl.allModel[index].gameObject);
+                bInfo.Shoot(myCards[index].cardInfo);
             }
         }
     }
     private void GetShootInfo(List<GameObject> targets, Vector3 check, float checkDis, ref bool isHave, ref int index)
     {
-        for (int i = 0; i < myControl.allModel.Count; i++)
+        for (int i = 0; i < myCards.Count; i++)
         {
-            float distance = Vector2.Distance(check, myControl.allModel[i].transform.position);
+            float distance = Vector2.Distance(check, myCards[i].transform.position);
 
             if (distance <= checkDis)
             {
@@ -449,57 +598,113 @@ public class GameManager : MonoBehaviour
 
 
 
-    #region 限制移动区域
+    #region 相机
+    public bool isPlayCameraAnimation;
+    private Vector3 cameraAniPosition;
 
-    private float distanceCCY;
-    private void LimetCameraY()
+    public void DoCameraAnimation(Vector3 orgPos)
     {
-        //if (myControl != null)
-        //{
-        //    distanceCCY = myControl.transform.localPosition.y - gameCamera.transform.localPosition.y;
-        //    if (Mathf.Abs(distanceCCY) > DataController.instance.limetCameraYLength)
-        //    {
-        //        float y = myControl.transform.localPosition.y + (distanceCCY > 0 ? -1 : 1) * DataController.instance.limetCameraYLength;
-        //        if (y < DataController.instance.limetCameraTop && y > DataController.instance.limetCameraBottom)
-        //        {
-        //            gameCamera.transform.localPosition = new Vector3(gameCamera.transform.localPosition.x, y, gameCamera.transform.localPosition.z);
-        //        }
-        //        else
-        //        {
-        //            //超过相机设置限制上下区域，相机不移动
-        //        }
-        //    }
-        //}
-    }
-
-    public void LimetControlZ(Vector3 pos, ref Vector3 add)
-    {
-        if (myControl != null)
+        if (!isPlayCameraAnimation)
         {
-            Vector3 end = pos + add;
-            if (end.z < DataController.instance.limetControlTop && end.z > DataController.instance.limetControlBottom)
-            {
-                //在限制区域内，可以移动
-            }
-            else
-            {
-                add = new Vector3(add.x, 0);
-            }
+
+
         }
     }
-    public void LimetControlZ(ref Vector3 fixPos)
+
+
+
+
+
+    private void LimetCamera()
     {
-        if (myControl != null)
+        if (myCards.Count <= DataController.instance.cameraFollowIndex || myCards[DataController.instance.cameraFollowIndex] == null)
+            return;
+
+        Vector3 distance = myCards[DataController.instance.cameraFollowIndex].transform.position - gameCamera.transform.position;
+        //减去原始差距
+        distance -= DataController.instance.playerPos - DataController.instance.cameraPosition;
+        //
+        if (Mathf.Abs(distance.x) > DataController.instance.limetCameraFollowX)
         {
-            if (fixPos.z > DataController.instance.limetControlTop)
-            {
-                fixPos.z = DataController.instance.limetControlTop;
-            }
-            if (fixPos.z < DataController.instance.limetControlBottom)
-            {
-                fixPos.z = DataController.instance.limetControlBottom;
-            }
+            //左右跟随
+            distance.x = (distance.x / Mathf.Abs(distance.x)) * (Mathf.Abs(distance.x) - DataController.instance.limetCameraFollowX);
         }
+        else
+        {
+            distance.x = 0;
+        }
+        distance.y = 0;
+        if (Mathf.Abs(distance.z) > DataController.instance.limetCameraFollowZ)
+        {
+            //上下跟随
+            distance.z = (distance.z / Mathf.Abs(distance.z)) * (Mathf.Abs(distance.z) - DataController.instance.limetCameraFollowZ);
+        }
+        else
+        {
+            distance.z = 0;
+        }
+        //
+        if (distance.x != 0 || distance.z != 0)
+        {
+            Vector3 endPosition = gameCamera.transform.position + distance;
+            if (endPosition.z > DataController.instance.limetCameraTop)
+            {
+                endPosition.z = DataController.instance.limetCameraTop;
+            }
+            if (endPosition.z < DataController.instance.limetCameraBottom)
+            {
+                endPosition.z = DataController.instance.limetCameraBottom;
+            }
+            gameCamera.transform.DOMove(endPosition, Time.deltaTime);
+        }
+    }
+
+
+    public void LimetControl(Vector3 pos, ref Vector3 add)
+    {
+        Vector3 end = pos + add;
+        //
+        if (end.z < DataController.instance.limetControlTop && end.z > DataController.instance.limetControlBottom)
+        {
+            //在限制区域内，可以移动
+        }
+        else
+        {
+            add = new Vector3(add.x, add.y, 0);
+        }
+        if (end.x < DataController.instance.limetControlRight && end.x > DataController.instance.limetControlLeft)
+        {
+            //在限制区域内，可以移动
+        }
+        else
+        {
+            add = new Vector3(0, add.y, add.z);
+        }
+    }
+    public bool LimetControl(ref Vector3 fixPos)
+    {
+        bool isLimet = false;
+        if (fixPos.x > DataController.instance.limetControlRight)
+        {
+            isLimet = true;
+            fixPos.x = DataController.instance.limetControlRight;
+        }
+        if (fixPos.x < DataController.instance.limetControlLeft)
+        {
+            isLimet = true;
+            fixPos.x = DataController.instance.limetControlLeft;
+        }
+        if (fixPos.z > DataController.instance.limetControlTop)
+        {
+            isLimet = true;
+            fixPos.z = DataController.instance.limetControlTop;
+        }
+        if (fixPos.z < DataController.instance.limetControlBottom)
+        {
+            isLimet = true;
+            fixPos.z = DataController.instance.limetControlBottom;
+        }
+        return isLimet;
     }
 
 
@@ -511,22 +716,10 @@ public class GameManager : MonoBehaviour
         Transform trans = null;
         switch (type)
         {
-            case PreLoadType.CardHurtParticle:
-                trans = transHurt;
-                break;
-            case PreLoadType.BoatHurtParticle:
-                trans = transHurt;
-                break;
             case PreLoadType.ShootParticle:
                 trans = transShoot;
                 break;
             case PreLoadType.BoatDeadParticle:
-                trans = transHurt;
-                break;
-            case PreLoadType.SelfHurtParticle:
-                trans = transHurt;
-                break;
-            case PreLoadType.BulletDesParticle:
                 trans = transHurt;
                 break;
             default:
@@ -545,16 +738,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DeleteBoat(GameObject obj)
+    public void DeleteBoat(CardInfo obj)
     {
         DeleteEnemy(obj);
         SetCameraShake();
     }
-    public void DeleteEnemy(GameObject obj)
+    public void DeleteEnemy(CardInfo obj)
     {
-        GameObject remove = obj;
         showEnemy.Remove(obj);
-        Destroy(remove);
+        Destroy(obj.gameObject);
     }
 
     public void SetCameraShake()
@@ -579,7 +771,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        LimetCameraY();
+        LimetCamera();
+        CheckPlayAuto();
         if (CurState == GameState.开始战斗)
         {
             BoatCD += Time.deltaTime;
@@ -595,7 +788,9 @@ public class GameManager : MonoBehaviour
     [ContextMenu("角度")]
     void SetCameraInit()
     {
+        gameCamera.transform.position = DataController.instance.cameraPosition;
         gameCamera.gameObject.SetActive(true);
+        seaCamera.gameObject.SetActive(true);
     }
 
 }
